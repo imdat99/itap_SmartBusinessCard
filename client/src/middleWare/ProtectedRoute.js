@@ -3,10 +3,11 @@ import { connect } from 'react-redux'
 import Navbar from "../components/navbar"
 
 const ProtectedRoute = ({ auth, component: Component, ...rest }) => {
+    console.log(auth)
     return (
         <Route {...rest} render={props => auth.isAuthenticated ? (
             <> <Navbar />
-                <Component {...rest} {...props} />
+                <Component {...props} />
             </>) : <Redirect to='/login' />} />
     )
 }
@@ -15,8 +16,4 @@ const mapStateToProps = (state) => ({
     auth: state.auth
 })
 
-const mapDispatchToProps = {
-
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(ProtectedRoute)
+export default connect(mapStateToProps, {})(ProtectedRoute)

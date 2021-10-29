@@ -32,11 +32,13 @@ export const loadUser = () => async dispatch => {
                 setAuthToken(null)
                 dispatch(initAuth)
             }
+            return response.data
         }
         catch (err) {
             localStorage.removeItem(TOKEN_KEY_NAME)
             setAuthToken(null)
             dispatch(initAuth)
+            return err
         }
     } else { dispatch(initAuth) }
 

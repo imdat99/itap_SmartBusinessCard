@@ -9,7 +9,6 @@ function Editlink({ updatePost, trigger, setTrigger, reff, bind_titleUrl, titleu
 
 
     const { title, url, type } = titleurl
-
     const onChangePostForm = (e) => {
         bind_titleUrl({ ...titleurl, [e.target.name]: e.target.value })
     }

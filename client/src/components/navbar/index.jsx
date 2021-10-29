@@ -25,7 +25,7 @@ const Navbar = () => {
                             </li>
 
                             <li className={styles.nav__item}>
-                                <NavLink to='/theme' exact className={`${styles.nav__link}`} activeClassName={styles.active_link}>
+                                <NavLink to='/dash/theme' exact className={`${styles.nav__link}`} activeClassName={styles.active_link}>
 
                                     <div className={styles.nav__icon}>
                                         <box-icon name='color-fill' type='solid' ></box-icon>
@@ -35,7 +35,7 @@ const Navbar = () => {
                             </li>
 
                             <li className={styles.nav__item}>
-                                <NavLink to='/setting' exact className={`${styles.nav__link}`} activeClassName={styles.active_link}>
+                                <NavLink to='/dash/setting' exact className={`${styles.nav__link}`} activeClassName={styles.active_link}>
                                     <div className={styles.nav__icon}>
 
                                         <box-icon name='spreadsheet' type='solid' ></box-icon>

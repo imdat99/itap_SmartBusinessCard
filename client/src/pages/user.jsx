@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import PropTypes from 'prop-types'
+import { apiUrl } from '../store/constantsValue'
 import axios from 'axios'
 import { withRouter } from 'react-router-dom'
 import IsUser from '../components/user/isUser'
@@ -13,7 +13,7 @@ const User = (props) => {
     const [isFound, setFound] = useState(true)
     const [isLoading, setLoading] = useState(true)
     useEffect(() => {
-        axios.get(`http://localhost:5000/api/page/${id}`).then(response => {
+        axios.get(`${apiUrl}/page/${id}`).then(response => {
             setUserData(response.data)
         }).catch(err => {
             setFound(false)
@@ -23,8 +23,6 @@ const User = (props) => {
         // <IsUser />
         isLoading ? (<IsUser><Loadding /></IsUser>) :
             isFound ? <IsUser data={UserData} /> : <Notfound404 />
-
-
     )
 }
 

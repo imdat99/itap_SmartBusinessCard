@@ -23,49 +23,46 @@ const isUser = props => {
     }
     return (
         <>
-            <div>
-                <div>
-                    <div className={css.container} >
-                        <div className={css.header} >
-                            <div style={cover}>
-                                <div className={css.avatar} >
-                                    <img className={css.avatarImg} src={avatarImage} alt="" />
-                                </div>
-                            </div>
-                            <div className={css.Name} >
-                                <h1>{data.Profile?.fullName || `@${data?.username}`}</h1>
-                            </div>
-                            <hr />
-                            <div className={css.description} >
-                                <p>{data.Profile?.decription}</p>
-                            </div>
-                        </div>
-                        <div className={css.content} >
-                            {data.allLinks?.length === 0 ?
-                                <div className={css.noContent} >
-                                    <h1>No Content</h1>
-                                </div> :
-                                data.allLinks?.map(item =>
-                                    <a key={item._id} href={
-                                        item.type === 'mail' ? `mailto:${item.url}` :
-                                            item.type === 'tel' ? `tel:${item.url}` :
-                                                item.url
-                                    } target="blank" >
-                                        <div className={css.contentItem} >
-                                            {item.thumbnailImage === 'default' ? '' : <img src={linkImage} alt="" />}
-                                            <h2>{item.title}</h2>
-                                        </div>
-                                    </a>
-
-                                )
-                            }
+            <div className={css.container} >
+                <div className={css.header} >
+                    <div style={cover}>
+                        <div className={css.avatar} >
+                            <img className={css.avatarImg} src={avatarImage} alt="" />
                         </div>
                     </div>
-                    <div className={css.footer} >
-                        <h5>© 2021 Dat.lt18</h5>
+                    <div className={css.Name} >
+                        <h1>{data.Profile?.fullName || `@${data?.username}`}</h1>
+                    </div>
+                    <hr />
+                    <div className={css.description} >
+                        <p>{data.Profile?.decription}</p>
                     </div>
                 </div>
+                <div className={css.content} >
+                    {data.allLinks?.length === 0 ?
+                        <div className={css.noContent} >
+                            <h1>No Content</h1>
+                        </div> :
+                        data.allLinks?.map(item =>
+                            <a key={item._id} href={
+                                item.type === 'mail' ? `mailto:${item.url}` :
+                                    item.type === 'tel' ? `tel:${item.url}` :
+                                        item.url
+                            } target="blank" >
+                                <div className={css.contentItem} >
+                                    {item.thumbnailImage === 'default' ? '' : <img src={item.thumbnailImage} alt="" />}
+                                    <h2>{item.title}</h2>
+                                </div>
+                            </a>
+
+                        )
+                    }
+                </div>
             </div>
+            <div className={css.footer} >
+                <h5>© 2021 Dat.lt18</h5>
+            </div>
+
             {props.children}</>
     )
 }

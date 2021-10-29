@@ -1,6 +1,6 @@
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import { connect } from 'react-redux'
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 import ProtectedRoute from "./middleWare/ProtectedRoute";
 import { loadUser } from "./store/actions/authAction";
@@ -13,24 +13,30 @@ import Setting from "./components/admin/setting";
 
 
 function App({ loadUser, auth }) {
-  useEffect(() => {
-    loadUser();
+  const [isAuth, set_isAuth] = useState(false)
+  useEffect(async () => {
+    await loadUser();
+    set_isAuth(true)
   }, [])
   return (
-    <BrowserRouter>
-      <Switch>
-        <Route exact path='/'>
-          {(!auth.authLoading && auth.isAuthenticated) ? <Redirect to="/dash" /> : <Home />}
-        </Route>
-        <Route exact path='/login' component={Login} />
-        <ProtectedRoute exact path='/dash' component={Admin} />
-        <ProtectedRoute exact path='/theme' component={Theme} />
-        <ProtectedRoute exact path='/setting' component={Setting} />
-        <Route path='/:code' component={User} />
-      </Switch>
-    </BrowserRouter>
+    <>
+      {isAuth ?
+        <BrowserRouter>
+          <Switch>
+            <Route exact path='/'>
+              {(!auth.authLoading && auth.isAuthenticated) ? <Redirect to="/dash" /> : <Home />}
+            </Route>
+            <Route exact path='/login' component={Login} />
+            <ProtectedRoute exact path='/dash' component={Admin} />
+            <ProtectedRoute exact path='/dash/theme' component={Theme} />
+            <ProtectedRoute exact path='/dash/setting' component={Setting} />
+            <Route path='/:code' component={User} />
+          </Switch>
+        </BrowserRouter> : ''}
+    </>
 
-  );
+
+  )
 }
 const mapStateToProps = (state) => ({
   auth: state.auth

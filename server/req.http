@@ -5,6 +5,15 @@ Content-Type: application/json
     "username":"dat.lt",
     "password":"datkhong9"
 }
+### doi pass
+put http://localhost:5000/api/auth
+Content-Type: application/json
+Authorization: Bare eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MTVjNzgwNWM0MjAwMGQ0ZWFmM2M1OGEiLCJpYXQiOjE2MzU1MTY2NTR9.NA4wzV3eZL16DhZ94OSBxm0ujvTop3SUEU5SuO3bF4A
+
+{
+    "oldpass":"datkhong9",
+    "newpass":"ahihi"
+}
 ###
 post http://localhost:5000/api/auth/register
 Content-Type: application/json

@@ -50,7 +50,7 @@ export const Login = ({ getLogin, auth }) => {
             console.log(err)
         }
     }
-    if (!auth.authLoading && auth.isAuthenticated) {
+    if (auth.isAuthenticated) {
         return <Redirect to='/dash' />
     }
     else

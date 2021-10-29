@@ -12,16 +12,17 @@ import css from '../../Auth/common/css/styles2.module.css'
 function Cropthumb(props) {
     const [scale_value, setscale_value] = useState(1);
     const [editor, set_editor] = useState(null);
-
+    console.log(props)
     const onScaleChange = (e) => {
         setscale_value((e.target.value / 10))
     }
     const setEditorRef = editor_ => set_editor(editor_);
-    const onCrop = () => {
+    const onCrop = async () => {
         if (editor !== null) {
             const url = editor.getImageScaledToCanvas().toDataURL();
-            console.log(url)
-            props.setTrigger(false)
+            const response = await props.updatePost({ _id: props.idPost, thumbnailImage: url })
+            // console.log(props.idPost)
+            if (response.success) props.setTrigger(false)
         }
     };
     const submit = (e) => {
@@ -32,11 +33,16 @@ function Cropthumb(props) {
     return (props.trigger) ?
         <main className={css.container} style={{ zIndex: '1000' }}>
             < div style={{ margin: 'auto' }}>
-                <div className={css.formContainer} ref={props.abcd}>
+                <div className={css.formContainer} >
                     < div className={css.form} style={{ padding: '0' }} >
                         <div className={css.formTitle} style={{ padding: '16px 16px 16px 16px' }}>
                             <h3>Chọn ảnh thu nhỏ</h3>
-                            <div onClick={() => { props.setTrigger(false) }} className={css.formExit}>
+                            <div onClick={() => {
+                                props.setTrigger({
+                                    visiable: false,
+                                    file: null
+                                })
+                            }} className={css.formExit}>
                                 < img src={closebtn} alt="" />
                             </div >
                         </div >
@@ -61,7 +67,13 @@ function Cropthumb(props) {
                         </div >
                         <div style={{ margin: '-10px 0 20px 0' }} className={css.divider}></div>
                         < div style={{ padding: '0 16px' }} >
-                            <button type='button' onClick={() => { props.setTrigger(false) }} className={`${css.formLogInBtn} ${css.cancel}`}>Huỷ</button>
+                            <button type='button' onClick={() => {
+                                document.removeEventListener("change", () => { })
+                                props.setTrigger({
+                                    visiable: false,
+                                    file: null
+                                })
+                            }} className={`${css.formLogInBtn} ${css.cancel}`}>Huỷ</button>
                             <button type='button' className={`${css.formLogInBtn} ${css.save}`} onClick={onCrop}>Lưu</button>
                         </div >
 

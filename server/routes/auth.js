@@ -25,6 +25,42 @@ router.get("/", verifyToken, async (req, res) => {
 
 })
 
+// @route put api/auth
+// @desc change password
+// @acces private
+router.put("/", verifyToken, async (req, res) => {
+    const { oldpass, newpass } = req.body;
+
+    // Simple valid
+    try {
+        const user = await Users.findOne({ _id: req.userId });
+        const passwordValid = await argon2.verify(user.password, oldpass);
+        if (!passwordValid)
+            return res.status(400).json({
+                success: false,
+                message: "Incorrect password",
+            });
+        const hashedPassword = await argon2.hash(newpass);
+        let updatedpass = { password: hashedPassword }
+        updatedpass = await Users.findByIdAndUpdate({ _id: req.userId }, updatedpass, { new: true })
+
+        // User not authorised to update post or link not found
+        if (!updatedpass) {
+            return res
+                .status(401)
+                .json({ success: false, message: 'User not authorised or link not found' })
+        }
+        res.json({
+            success: true,
+            message: "Updated",
+        });
+    } catch (err) {
+        console.log(err);
+        res.status(500).json({ success: false, message: "Internal server error" });
+    }
+
+})
+
 
 // @route Post api/auth/register
 // @desc Register user

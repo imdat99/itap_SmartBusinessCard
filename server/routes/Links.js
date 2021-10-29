@@ -12,7 +12,7 @@ const user = require("../models/users");
 // @desc create link
 // @access private
 router.post("/", verifyToken, async (req, res) => {
-    const { title, type, url, activated, thumbnailImage } = req.body;
+    const { title, type, url, activated, gate, thumbnailImage } = req.body;
 
     // Simple valid
     if (!title && !type)
@@ -29,6 +29,7 @@ router.post("/", verifyToken, async (req, res) => {
                 type === 'tel' ? url :
                     type === 'mail' ? url :
                         (url.startsWith("https://") ? url : `https://${url}`),
+            gate,
             activated: true,
             thumbnailImage: thumbnailImage || 'default',
             user_id: req.userId,
@@ -65,7 +66,7 @@ router.get("/", verifyToken, async (req, res) => {
 // @access private
 
 router.put('/:id', verifyToken, async (req, res) => {
-    const { title, index, url, type, activated, thumbnailImage } = req.body;
+    const { title, index, url, type, activated, gate, thumbnailImage } = req.body;
 
     // Simple valid
     try {
@@ -73,12 +74,13 @@ router.put('/:id', verifyToken, async (req, res) => {
             title,
             index,
             type,
+            gate,
             url: url ?
                 (type === 'tel' ? url :
                     type === 'mail' ? url :
-                        (url.startsWith("https://") ? url : `https://${url}`)) : url ,
+                        (url.startsWith("https://") ? url : `https://${url}`)) : url,
             activated,
-            thumbnailImage: thumbnailImage || 'default'
+            thumbnailImage
         };
 
         const linkUpdateCondition = { _id: req.params.id, user_id: req.userId }

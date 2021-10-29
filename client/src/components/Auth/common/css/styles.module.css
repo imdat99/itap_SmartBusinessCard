@@ -98,7 +98,7 @@ a {
 }
 
 .titleParagraph {
-  font-size: 1.6rem;
+  font-size: 18px;
   width: 25rem;
   color: var(--titleColor);
 }
@@ -245,7 +245,7 @@ a {
   width: 100%;
   padding: 0 1.6rem;
   color: var(--inputColor);
-  font-size: 1.2rem;
+  /* font-size: 1.2rem; */
   background: var(--formColor);
 }
 

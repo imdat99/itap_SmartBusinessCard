@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const linksSchema = new Schema({
-    title:{
+    title: {
         type: String,
         required: true
     },
@@ -10,7 +10,7 @@ const linksSchema = new Schema({
         type: Number,
         required: true
     },
-    type : {
+    type: {
         type: String,
         enum: ['tel', 'mail', 'default']
     },
@@ -18,6 +18,7 @@ const linksSchema = new Schema({
         type: String,
         required: true
     },
+    gate: { type: String, },
     activated: Boolean,
     thumbnailImage: {
         type: String
@@ -27,7 +28,7 @@ const linksSchema = new Schema({
         ref: 'users'
     }
 },
-{ timestamps: true}
+    { timestamps: true }
 )
 
 module.exports = mongoose.model('links', linksSchema);

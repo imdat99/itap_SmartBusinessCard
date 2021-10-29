@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import css from './index.module.css'
+import css from './index/index.module.css'
 import { connect } from 'react-redux';
 import OnDelete from './index/delete';
 import Cropthumb from './index/cropthumb';
@@ -41,11 +41,17 @@ function Index({ data, updatePost }) {
 
     const thumbnailChange = (e) => {
         const file = e.target.files[0];
-        const { type } = file;
-        if (!(type.endsWith('jpeg') || type.endsWith('png') || type.endsWith('jpg') || type.endsWith('gif'))) {
-        } else {
-            set_thumbnail({ visiable: true, file: file })
+        e.target.value = null;
+        console.log(e)
+
+        if (file) {
+            const { type } = file;
+            if (!(type.endsWith('jpeg') || type.endsWith('png') || type.endsWith('jpg') || type.endsWith('gif'))) {
+            } else {
+                set_thumbnail({ visiable: true, file: file })
+            }
         }
+
     };
     return (
         <>
@@ -82,9 +88,9 @@ function Index({ data, updatePost }) {
                             <div className={css.ContentComponet}>
 
                                 <div className={css.icon} >
-                                    <label htmlFor="pickImg"><box-icon name='image-alt' color={data.thumbnailImage == 'default' ? '#dddfe2' : '#42b72a'} ></box-icon></label>
+                                    <label htmlFor={`${data._id}pickimg`}><box-icon name='image-alt' color={data.thumbnailImage == 'default' ? '#dddfe2' : '#42b72a'} animation={thumbnail.visiable ? 'flashing' : ''}></box-icon></label>
 
-                                    <input style={{ display: 'none' }} id="pickImg" type="file" name="profilePicBtn" accept="image/png, image/jpeg" onChange={e => { thumbnailChange(e) }} />
+                                    <input style={{ display: 'none' }} id={`${data._id}pickimg`} type="file" name="profilePicBtn" accept="image/png, image/jpeg" onChange={e => { thumbnailChange(e) }} />
                                     <div className={css.tooltiptext}>Ảnh thu nhỏ</div>
                                 </div>
                                 <div className={css.icon}>
