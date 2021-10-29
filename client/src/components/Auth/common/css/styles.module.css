@@ -1,0 +1,455 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+/***************
+ * BASE STYLES * 
+ ***************/
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --white: #ffffff;
+  --gray1: #f5f6f7;
+  --gray2: #f0f2f5;
+  --gray3: #dddfe2;
+  --gray4: #8a8d91;
+  --gray5: #737373;
+  --gray6: #606770;
+  --black: #1c1e21;
+  --light-blue: #e7f3ff;
+  --blue1: #1877f2;
+  --blue2: #166fe5;
+  --green1: #42b72a;
+  --green2: #36a420;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+/* theme_varialbe */
+.normal_theme {
+  --titleColor: var(--gray1);
+  --backgroundColor: #000;
+  --paramColor: var(--gray6);
+  --formColor: #333;
+  --dividerColor: var(--gray6);
+  --inputBorder: var(--gray6);
+  --inputForcusColor: var(--blue2);
+  --inputColor: var(--gray1);
+  --inpuErrortColor: var(--red);
+
+}
+
+.dark_theme {
+  --titleColor: var(--black);
+  --backgroundColor: var(--gray2);
+  --paramColor: var(--gray6);
+  --formColor: var(--white);
+  --dividerColor: var(--gray3);
+  --inputBorder: var(--gray3);
+  --inputForcusColor: var(--light-blue);
+  --inputColor: #1c1e21;
+  --inpuErrortColor: var(--light-red);
+}
+
+/* -------- */
+.body {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 1.6rem;
+  background: var(--backgroundColor)
+}
+
+input {
+  border: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.hidden {
+  display: none;
+}
+
+.container {
+  min-height: 100vh;
+}
+
+/*********
+ * TITLE * 
+ *********/
+
+.titleContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 4rem;
+  text-align: center;
+}
+
+.titleLogo {
+  height: 8.6rem;
+  position: relative;
+  top: 1rem;
+  margin-left: 3rem;
+}
+
+.titleParagraph {
+  font-size: 1.6rem;
+  width: 25rem;
+  color: var(--titleColor);
+}
+
+.titleContainer h2.header {
+  font-family: 'Poppins', sans-serif;
+  font-size: 90px;
+  line-height: 1em;
+  width: 200px;
+  position: relative;
+}
+
+.titleContainer h2.header:after {
+  position: absolute;
+  content: attr(data-text);
+  top: 0;
+  left: 0;
+  right: 0;
+  background: -webkit-repeating-linear-gradient(-45deg, #71b7e6, var(--blue1), #b98acc, #ee8176, #b98acc, var(--blue2), #9b59b6);
+  background-size: 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  /* text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.25); */
+  animation: animate 10s ease-in-out infinite;
+}
+
+@keyframes animate {
+  0% {
+    background-position: 0 0;
+  }
+
+  25% {
+    background-position: 100% 0;
+  }
+
+  50% {
+    background-position: 100% 100%;
+  }
+
+  75% {
+    background-position: 0% 100%;
+  }
+
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+/********
+ * FORM * 
+ ********/
+
+.formContainer,
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.formContainer {
+  max-width: 39.6rem;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.form {
+  background: var(--formColor);
+  padding: 1.6rem 1.6rem 2.4rem 1.6rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.form-title {
+  position: relative;
+  text-align: left;
+  font-family: SFProText-Regular, Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  line-height: 24px;
+  /* margin-bottom: 12px; */
+}
+
+.form-title>p {
+  margin-top: 10px;
+  color: var(--paramColor);
+}
+
+.inputError {
+  border-color: var(--red);
+  box-shadow: 0 0 0 2px var(--inpuErrortColor);
+}
+
+.paramError {
+  color: var(--red) !important;
+}
+
+.formExit {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 16px;
+}
+
+.inputContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 4.5rem;
+  border: 1px solid var(--inputBorder);
+  border-radius: 6px;
+}
+
+.inputContainer:focus-within {
+  border-color: var(--blue1);
+  box-shadow: 0 0 0 2px var(--inputForcusColor);
+}
+
+.inputContainerPassword {
+  margin: 1rem 0;
+}
+
+.passwordEyeContainer {
+  width: 2.8rem;
+  height: 2.8rem;
+  border-radius: 50%;
+  position: relative;
+  right: 10px;
+  cursor: pointer;
+}
+
+.passwordEyeContainer:hover {
+  background: rbga(0, 0, 0, 0.05);
+}
+
+/* Eye icon */
+.passwordEye {
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.formInput {
+  width: 100%;
+  padding: 0 1.6rem;
+  color: var(--inputColor);
+  font-size: 1.2rem;
+  background: var(--formColor);
+}
+
+.formInput:focus {
+  outline: none;
+}
+
+.formInput:focus::placeholder {
+  opacity: 0.5;
+  color: var(--inputBorder);
+}
+
+.formInput::placeholder {
+  opacity: 0.9;
+}
+
+.formLogInBtn {
+  height: 4.5rem;
+  margin-bottom: 2rem;
+  background: var(--blue1);
+  color: var(--white);
+  font-size: 1.4rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  transition: background-color 200ms ease-in;
+  cursor: pointer;
+}
+
+.formLogInBtn.reg {
+  background: var(--green1) !important;
+}
+
+.reg:hover {
+  background: var(--green2) !important;
+}
+
+.formLogInBtn:hover {
+  background: var(--blue2);
+}
+
+.formLogInBtn.recover {
+  font-size: inherit;
+  height: 4rem;
+  width: 6em;
+  margin-left: auto;
+}
+
+.formForgotPassword {
+  font-size: 1.3rem;
+  color: var(--blue1);
+  align-self: center;
+}
+
+.formForgotPassword:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.divider {
+  margin: 2rem 0;
+  border-bottom: 1px solid var(--dividerColor);
+}
+
+.formCreateAccountBtn {
+  font-size: 1.4rem;
+  height: 4.5rem;
+  line-height: 4.5rem;
+  background: var(--green1);
+  color: var(--white);
+  border-radius: 6px;
+  font-weight: bold;
+  align-self: center;
+  padding: 0 1.6rem;
+  transition: background-color 200ms ease-in;
+}
+
+.formCreateAccountBtn:hover {
+  background: var(--green2);
+  cursor: pointer;
+}
+
+/* Create a page for a celebrity, band or business */
+.create-page-paragraph {
+  position: relative;
+  top: 3rem;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.create-page-link {
+  font-weight: bold;
+  color: var(--black);
+}
+
+.create-page-link:hover {
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 460px) {
+  .titleParagraph {
+    margin-top: 2rem;
+  }
+
+  .titleLogo {
+    margin: 0;
+  }
+
+}
+
+/* These styles will be applied on devices with a width of at least 500px */
+@media screen and (min-width: 500px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 15rem;
+  }
+
+  .titleContainer {
+    display: initial;
+    width: 40rem;
+  }
+
+  .titleLogo {
+    height: 10.6rem;
+    margin-left: unset;
+  }
+
+  .titleParagraph {
+    font-size: 2.4rem;
+    width: auto;
+  }
+
+  .formContainer {
+    max-width: initial;
+    margin: 0;
+    padding: 0;
+  }
+
+  .form {
+    width: 39.6rem;
+  }
+
+  .inputContainer {
+    height: 5.2rem;
+  }
+
+  .formInput {
+    font-size: 1.7rem;
+  }
+
+  .formLogInBtn {
+    height: 4.8rem;
+    font-size: 2rem;
+  }
+
+  .formForgotPassword {
+    font-size: 1.4rem;
+  }
+
+  .formCreateAccountBtn {
+    height: 4.8rem;
+    line-height: 4.8rem;
+    font-size: 1.7rem;
+  }
+
+  .create-page-paragraph {
+    font-size: 1.4rem;
+  }
+}
+
+/* These styles will be applied on devices with a width of at least 900px */
+
+@media screen and (min-width: 900px) {
+  .container {
+    flex-direction: row;
+  }
+
+  .titleContainer {
+    padding-bottom: 12rem;
+    margin-right: 5rem;
+    text-align: initial;
+    margin-bottom: 0;
+  }
+
+  .titleLogo {
+    left: unset;
+  }
+}
+
+/* These styles will be applied on devices with a width of at least 1075px */
+@media screen and (min-width: 1075px) {
+  .titleContainer {
+    width: 58rem;
+    padding-bottom: 12rem;
+    padding-right: 15rem;
+    text-align: initial;
+    margin-bottom: 0;
+    margin-right: 0;
+  }
+
+  .titleParagraph {
+    font-size: 2.8rem;
+  }
+}

@@ -1,0 +1,7 @@
+.custom {
+    width: 250px !important;
+    height: 250px !important;
+    position: fixed;
+    bottom: 20px;
+    right: 0px;
+}

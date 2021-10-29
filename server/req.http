@@ -1,0 +1,52 @@
+post http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+{
+    "username":"dat.lt",
+    "password":"datkhong9"
+}
+###
+post http://localhost:5000/api/auth/register
+Content-Type: application/json
+
+{
+    "username":"dat.lt2",
+    "password":"datkhong9"
+}
+### post link
+post http://localhost:5000/api/Links
+Content-Type: application/json
+Authorization: Bare eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MTVjN2M2ZWIwZjc4YThjOTZlOGE5YzUiLCJpYXQiOjE2MzM0NTExMTh9.wQgEh2aur211kOLf5TOIDtRIHWZUps09AVRRg1yKbFg
+
+{
+    "title":"facebook", 
+    "type":"default",
+    "url":"facebook.com/datlt99", 
+    "activated": true
+}
+### update link
+put http://localhost:5000/api/links/615c7c7fb0f78a8c96e8a9ca
+Content-Type: application/json
+Authorization: Bare eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MTVjNzgwNWM0MjAwMGQ0ZWFmM2M1OGEiLCJpYXQiOjE2MzU0MTU1MTd9.a0Ast8A6mjYqU_8Wzpjy8hoi-tO3hYHthkVvmwS_koY
+
+{
+    "activated": true
+}
+### delete link
+DELETE http://localhost:5000/api/links/615baba8767e379018150571
+Authorization: Bare eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MTViYTE4ZGI2ZjBhOWFhYzVjMzk5NDkiLCJpYXQiOjE2MzMzOTc2NTF9.VA9bYUC6cDEjEIqZ-4l1HnByOqbJcRV7ujiTVC22k7U
+
+### page
+get http://localhost:5000/api/page/dat.lt
+### update page
+put http://localhost:5000/api/page/
+Content-Type: application/json
+Authorization: Bare eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MTVjNzgwNWM0MjAwMGQ0ZWFmM2M1OGEiLCJpYXQiOjE2MzM0NTI0MjZ9.VTwgjSxUUITEcOsS3OiWiSCHFxw99ZJGuHA39hOSaOg
+
+{
+    "fullName": "Lê Thành Đạt",
+    "decription": "Cutô"
+}
+###
+get http://localhost:5000/api/links
+Authorization: Bare eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MTVjNzgwNWM0MjAwMGQ0ZWFmM2M1OGEiLCJpYXQiOjE2MzM0NTI0MjZ9.VTwgjSxUUITEcOsS3OiWiSCHFxw99ZJGuHA39hOSaOg

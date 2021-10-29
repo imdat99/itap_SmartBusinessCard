@@ -1,0 +1,106 @@
+@import url("https://fonts.googleapis.com/css?family=Varela+Round");
+
+.loader_body {
+    font-family: "Varela Round";
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.loading {
+    margin: auto;
+}
+
+.loading {
+    font-size: 30px;
+    background: transparent;
+    color: #FFEFAF;
+    animation: loading9b 5s infinite;
+}
+
+.loading::before {
+    content: 'Loading...';
+    background: linear-gradient(to right, #333, #333 50%, #b5e2fa 55%, #b5e2fa 100%);
+    background-repeat: no-repeat;
+    background-size: 200% 100%;
+    transform-origin: 0 0;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-position: 100% 0;
+    animation: loading9 5s infinite;
+}
+
+@-moz-keyframes loading9 {
+
+    0%,
+    20% {
+        background-position: 400% 0;
+    }
+
+    80% {
+        background-position: 0% 0;
+    }
+}
+
+@-webkit-keyframes loading9 {
+
+    0%,
+    20% {
+        background-position: 400% 0;
+    }
+
+    80% {
+        background-position: 0% 0;
+    }
+}
+
+@keyframes loading9 {
+
+    0%,
+    20% {
+        background-position: 400% 0;
+    }
+
+    80% {
+        background-position: 0% 0;
+    }
+}
+
+@-moz-keyframes loading9b {
+
+    0%,
+    100% {
+        opacity: 0;
+    }
+
+    20%,
+    80% {
+        opacity: 1.0;
+    }
+}
+
+@-webkit-keyframes loading9b {
+
+    0%,
+    100% {
+        opacity: 0;
+    }
+
+    20%,
+    80% {
+        opacity: 1.0;
+    }
+}
+
+@keyframes loading9b {
+
+    0%,
+    100% {
+        opacity: 0;
+    }
+
+    20%,
+    80% {
+        opacity: 1.0;
+    }
+}
