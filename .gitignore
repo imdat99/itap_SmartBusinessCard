@@ -2,3 +2,4 @@
 /test
 /client/node_modules
 /htmlui
+/server/.env

@@ -32,6 +32,6 @@ app.use("/api/Links", Links);
 app.use('/api/page', Page);
 
 connectDB();
-const port = 5000;
+const port = process.env.PORT || 5000;
 
 app.listen(port, () => console.log(`run on port ${port}`));
