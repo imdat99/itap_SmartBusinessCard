@@ -6,6 +6,7 @@ const cors = require('cors')
 const authRouter = require("./routes/auth");
 const Links = require("./routes/Links");
 const Page = require('./routes/page')
+const profile = require('./routes/profile')
 
 const connectDB = async () => {
     try {
@@ -30,6 +31,7 @@ app.use(cors())
 app.use("/api/auth", authRouter);
 app.use("/api/Links", Links);
 app.use('/api/page', Page);
+app.use('/api/profile', profile)
 
 connectDB();
 const port = process.env.PORT || 5000;

@@ -19,6 +19,7 @@ export const getPosts = () => async dispatch => {
                 payload: response.data.allLinks
             })
         }
+        return response.data
     }
     catch (err) {
         console.log(err)
@@ -51,6 +52,7 @@ export const deletePost = id => async dispatch => {
         const response = await axios.delete(`${apiUrl}/links/${id}`)
         if (response.data.success)
             dispatch({ type: DELETE_POST, payload: id })
+        return response.data
     }
     catch (err) {
         console.log(err)

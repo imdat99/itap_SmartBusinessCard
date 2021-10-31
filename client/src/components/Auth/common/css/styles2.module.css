@@ -52,12 +52,86 @@ a {
     min-height: 100vh;
 }
 
+.onLoad {
+    /* display: none; */
+    display: flex;
+    z-index: 3;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(255, 255, 255, 0.3);
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+}
+
+/* animation */
+.fade_in {
+    animation: fadeIn linear .1s;
+    -webkit-animation: fadeIn linear .1s;
+    -moz-animation: fadeIn linear .1s;
+    -o-animation: fadeIn linear .1s;
+    -ms-animation: fadeIn linear .1s;
+}
+
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@-o-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@-ms-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
 /********
  * FORM * 
  ********/
 
 .formContainer,
 .form {
+    position: relative;
     display: flex;
     flex-direction: column;
 }
@@ -68,6 +142,7 @@ a {
     padding: 0 2rem;
     position: relative;
     width: 100%;
+    margin-bottom: 12rem;
 }
 
 .form {

@@ -33,36 +33,4 @@ router.get("/:code", async (req, res) => {
     }
 });
 
-// @route Put api/page
-// @desc update profile
-// @access private
-
-router.put('/', verifyToken, async (req, res) => {
-    const { fullName, decription, avatar, cover } = req.body;
-
-    try {
-        let updatedProfile = {
-            fullName, decription, avatar, cover
-        };
-
-        const profilepdateCondition = { user_id: req.userId }
-        updatedProfile = await profile.findOneAndUpdate(profilepdateCondition, updatedProfile, { new: true })
-
-        // User not authorised
-        if (!updatedProfile) {
-            return res
-                .status(401)
-                .json({ success: false, message: 'User not authorised' })
-        }
-        res.json({
-            success: true,
-            message: "Updated",
-            link: updatedProfile,
-        });
-    } catch (err) {
-        console.log(err);
-        res.status(500).json({ success: false, message: "Internal server error" });
-    }
-})
-
 module.exports = router;

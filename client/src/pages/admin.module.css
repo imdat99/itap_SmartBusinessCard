@@ -17,15 +17,15 @@
     position: fixed;
     right: 20px;
     bottom: 20px;
-    transition: background 0.25s;
+    transition: background 0.25s linear;
 
     outline: blue;
     border: none;
     cursor: pointer;
 }
 
-.floating_btn:active {
-    background: #007d63;
+.floating_btn:hover {
+    background: #00ac89;
 }
 
 @media screen and (max-width: 768px) {

@@ -9,8 +9,7 @@ import Home from "./pages/home";
 import User from "./pages/user";
 import Admin from "./pages/admin";
 import Theme from "./components/admin/theme";
-import Setting from "./components/admin/setting";
-
+import HandleSetting from "./components/admin/setting/handle";
 
 function App({ loadUser, auth }) {
   const [isAuth, set_isAuth] = useState(false)
@@ -29,7 +28,7 @@ function App({ loadUser, auth }) {
             <Route exact path='/login' component={Login} />
             <ProtectedRoute exact path='/dash' component={Admin} />
             <ProtectedRoute exact path='/dash/theme' component={Theme} />
-            <ProtectedRoute exact path='/dash/setting' component={Setting} />
+            <ProtectedRoute exact path='/dash/setting' component={HandleSetting} />
             <Route path='/:code' component={User} />
           </Switch>
         </BrowserRouter> : ''}

@@ -4,10 +4,13 @@ import { addPost } from '../../../store/actions/postsAction'
 
 import closebtn from '../../Auth/common/images/close.png'
 import css from '../../Auth/common/css/styles2.module.css'
+import Loader from '../../common/loader'
 
 function Addlink({ addPost, trigger, setTrigger, reff }) {
     // document.title = 'Register'
     // newpost data
+    const [onLoad, setonLoad] = useState(false);
+
     const [NewPostData, setNewPostData] = useState({
         title: '',
         url: '',
@@ -31,13 +34,21 @@ function Addlink({ addPost, trigger, setTrigger, reff }) {
     }
     const submit = async (e) => {
         e.preventDefault();
+        setonLoad(true)
         const { success } = await addPost(NewPostData)
-        setTrigger(false)
+        if (success) {
+            setonLoad(false);
+            setTrigger(false)
+
+        }
     }
     return (trigger) ?
-        <main className={css.container} style={{ zIndex: '2' }}>
-            <div className={css.formContainer}>
+        <main className={css.container} style={{ zIndex: '1000' }}>
+            <div className={`${css.formContainer} ${css.fade_in}`}>
                 <form onSubmit={submit} className={css.form} style={{ padding: '0' }} ref={reff} >
+                    <div className={css.onLoad} style={!onLoad ? { display: 'none' } : {}}>
+                        <Loader></Loader>
+                    </div>
                     <div className={css.formTitle} style={{ padding: '16px 16px 0px 16px' }}>
                         <h1>Thêm liên kết</h1>
 

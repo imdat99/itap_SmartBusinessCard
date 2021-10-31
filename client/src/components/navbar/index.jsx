@@ -18,9 +18,19 @@ const Navbar = () => {
                                 <NavLink to='/dash' exact className={`${styles.nav__link}`} activeClassName={styles.active_link}>
                                     <div className={styles.nav__icon}>
 
-                                        <box-icon name='home' type='solid' ></box-icon>
+                                        <box-icon name='dashboard' type='solid' ></box-icon>
                                     </div>
                                     <span className={styles.nav__name}>Home</span>
+                                </NavLink>
+                            </li>
+
+                            <li className={styles.nav__item}>
+                                <NavLink to='/dash/card' exact className={`${styles.nav__link}`} activeClassName={styles.active_link}>
+                                    <div className={styles.nav__icon}>
+
+                                        <box-icon name='id-card' ></box-icon>
+                                    </div>
+                                    <span className={styles.nav__name}>Thẻ</span>
                                 </NavLink>
                             </li>
 
@@ -28,9 +38,19 @@ const Navbar = () => {
                                 <NavLink to='/dash/theme' exact className={`${styles.nav__link}`} activeClassName={styles.active_link}>
 
                                     <div className={styles.nav__icon}>
-                                        <box-icon name='color-fill' type='solid' ></box-icon>
+                                        <box-icon name='palette' ></box-icon>
                                     </div>
                                     <span className={styles.nav__name}>Hiển thị</span>
+                                </NavLink>
+                            </li>
+
+                            <li className={styles.nav__item}>
+                                <NavLink to='/dash/noti' exact className={`${styles.nav__link}`} activeClassName={styles.active_link}>
+
+                                    <div className={styles.nav__icon}>
+                                        <box-icon name='bell' ></box-icon>
+                                    </div>
+                                    <span className={styles.nav__name}>Thông báo</span>
                                 </NavLink>
                             </li>
 
@@ -38,7 +58,7 @@ const Navbar = () => {
                                 <NavLink to='/dash/setting' exact className={`${styles.nav__link}`} activeClassName={styles.active_link}>
                                     <div className={styles.nav__icon}>
 
-                                        <box-icon name='spreadsheet' type='solid' ></box-icon>
+                                        <box-icon name='user' ></box-icon>
                                     </div>
                                     <span className={styles.nav__name}>Tài khoản</span>
                                 </NavLink>

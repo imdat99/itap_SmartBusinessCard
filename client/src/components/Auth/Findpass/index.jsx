@@ -19,7 +19,7 @@ function Findpass(props) {
     return (props.trigger) ?
         <main className={css.container}>
             < div style={{ margin: 'auto' }}>
-                <div className={css.formContainer}>
+                <div className={`${css.formContainer} ${css.fade_in}`}>
                     < form className={css.form} style={{ padding: '0' }} ref={props.reff}>
                         <div className={css.formTitle} style={{ padding: '16px 16px 16px 16px' }}>
                             <h2>Đặt lại mật khẩu</h2>

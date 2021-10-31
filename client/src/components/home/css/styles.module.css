@@ -610,7 +610,8 @@ img {
 .onClick_icon {}
 
 .send__img {
-  /* width: 280px; */
+
+  width: 100%;
   position: relative;
   padding: 10px;
   justify-self: center;

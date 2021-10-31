@@ -39,7 +39,7 @@ Content-Type: application/json
 Authorization: Bare eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MTVjNzgwNWM0MjAwMGQ0ZWFmM2M1OGEiLCJpYXQiOjE2MzU0MTU1MTd9.a0Ast8A6mjYqU_8Wzpjy8hoi-tO3hYHthkVvmwS_koY
 
 {
-    "activated": true
+    "activated":true
 }
 ### delete link
 DELETE http://localhost:5000/api/links/615baba8767e379018150571

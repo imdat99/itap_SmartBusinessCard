@@ -15,7 +15,7 @@ function Editlink({ updatePost, trigger, setTrigger, reff, bind_titleUrl, titleu
     const submit = async (e) => {
         e.preventDefault();
         // console.log({ ...titleurl })
-        const { success } = await updatePost({ _id: idPost, ...titleurl })
+        const { success } = await updatePost({ ...titleurl })
         setTrigger(false)
     }
     return (trigger) ?

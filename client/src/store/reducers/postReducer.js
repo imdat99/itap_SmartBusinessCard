@@ -4,8 +4,7 @@ const postReducer = (state = initPost, action) => {
         case POST_lOADED: {
             return {
                 ...state,
-                posts: action.payload,
-                postsLoading: false
+                posts: action.payload
             }
         }
         case ADD_POST: {

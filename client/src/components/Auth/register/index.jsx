@@ -59,7 +59,7 @@ function Register({ getRegister, trigger, setTrigger, reff }) {
     }
     return (trigger) ?
         <main className={css.container}>
-            <div className={css.formContainer}>
+            <div className={`${css.formContainer} ${css.fade_in}`}>
                 <form onSubmit={submit} className={css.form} style={{ padding: '0' }} ref={reff}>
                     <div className={css.formTitle} style={{ padding: '16px 16px 0px 16px' }}>
                         <h1>Đăng ký</h1>
