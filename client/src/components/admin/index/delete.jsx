@@ -1,7 +1,5 @@
 import React from 'react'
-import { connect } from 'react-redux'
 
-import { deletePost } from '../../../store/actions/postsAction'
 import closebtn from '../../Auth/common/images/close.png'
 import css from '../../Auth/common/css/styles2.module.css'
 import Loader from '../../common/loader'
@@ -54,13 +52,6 @@ function OnDelete(props) {
         : ''
 }
 
-const mapStateToProps = (state) => ({
 
-})
-
-const mapDispatchToProps = {
-    deletePost
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(OnDelete)
+export default React.memo(OnDelete)
 

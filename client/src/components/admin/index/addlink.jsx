@@ -1,6 +1,4 @@
-import React, { useState, useEffect } from 'react'
-import { connect } from 'react-redux'
-import { addPost } from '../../../store/actions/postsAction'
+import React, { useState, useEffect, memo } from 'react'
 
 import closebtn from '../../Auth/common/images/close.png'
 import css from '../../Auth/common/css/styles2.module.css'
@@ -10,7 +8,6 @@ function Addlink({ addPost, trigger, setTrigger, reff }) {
     // document.title = 'Register'
     // newpost data
     const [onLoad, setonLoad] = useState(false);
-
     const [NewPostData, setNewPostData] = useState({
         title: '',
         url: '',
@@ -98,13 +95,6 @@ function Addlink({ addPost, trigger, setTrigger, reff }) {
         : ''
 }
 
-const mapStateToProps = (state) => ({
 
-})
-
-const mapDispatchToProps = {
-    addPost
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Addlink)
+export default memo(Addlink)
 

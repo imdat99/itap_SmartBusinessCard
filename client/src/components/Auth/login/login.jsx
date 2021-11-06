@@ -20,7 +20,7 @@ export const Login = ({ getLogin, auth }) => {
     useEffect(() => {
         if (localStorage['selected_theme']) {
             const Theme = localStorage.getItem('selected_theme')
-            if (Theme == 'Darkxxx') {
+            if (Theme === 'Darkxxx') {
                 setDark(true)
             } else { setDark(false) }
         }
@@ -31,8 +31,6 @@ export const Login = ({ getLogin, auth }) => {
         isOn: false
     })
     const [isError, setisError] = useState(false);
-    // const [SignUp, setSignUp] = useState(false)
-    // const [FindPass, setFindPass] = useState(false)
     const { visiable: SignUp, setvisiable: setSignUp, ref: SignUpRef } = useDetectOutsideClick(false)
     const { visiable: FindPass, setvisiable: setFindPass, ref: FindPassRef } = useDetectOutsideClick(false)
     const onChangeLoginForm = event => {
@@ -87,7 +85,7 @@ export const Login = ({ getLogin, auth }) => {
                                     value={password}
                                     onChange={(e) => {
                                         onChangeLoginForm(e)
-                                        e.target.value != '' ? setEye({ ...Eye, isOn: true }) : setEye({ ...Eye, isOn: false })
+                                        e.target.value !== '' ? setEye({ ...Eye, isOn: true }) : setEye({ ...Eye, isOn: false })
                                     }}
                                 />
                                 <div className={`${stl.passwordEyeContainer} ${Eye.isOn ? '' : stl.hidden}`}>
@@ -99,10 +97,6 @@ export const Login = ({ getLogin, auth }) => {
                             < div className={stl.divider}></div>
                             <a onClick={() => { setSignUp(true) }} className={stl.formCreateAccountBtn}>Tạo tài khoản mớI</a>
                         </form >
-                        {/* <p className={stl.createPageParagraph} style={{ display: 'none' }}>
-                        < a href="#" className={stl.createPageLink}>Create a Page</a> for a
-                        celebrity, band or business.
-                    </p > */}
                     </div >
                 </main >
                 <Register trigger={SignUp} setTrigger={setSignUp} reff={SignUpRef}></Register>

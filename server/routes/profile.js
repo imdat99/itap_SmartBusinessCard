@@ -49,7 +49,7 @@ router.put('/', verifyToken, async (req, res) => {
         res.json({
             success: true,
             message: "Updated",
-            link: updatedProfile,
+            Profile: updatedProfile,
         });
     } catch (err) {
         console.log(err);

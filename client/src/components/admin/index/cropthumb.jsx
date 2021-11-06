@@ -1,9 +1,6 @@
 import React, { useState } from 'react'
-import { connect } from 'react-redux'
 import AvatarEditor from 'react-avatar-editor'
-import styled from 'styled-components'
 
-import { updatePost } from '../../../store/actions/postsAction'
 import closebtn from '../../Auth/common/images/close.png'
 import css from '../../Auth/common/css/styles2.module.css'
 import Loader from '../../common/loader'
@@ -85,13 +82,5 @@ function Cropthumb(props) {
         : ''
 }
 
-const mapStateToProps = (state) => ({
-
-})
-
-const mapDispatchToProps = {
-    updatePost
-}
-
-export default React.memo(connect(mapStateToProps, mapDispatchToProps)(Cropthumb))
+export default React.memo(Cropthumb)
 

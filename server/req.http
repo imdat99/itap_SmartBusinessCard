@@ -48,14 +48,13 @@ Authorization: Bare eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MTViYTE
 ### page
 get http://localhost:5000/api/page/dat.lt
 ### update page
-put http://localhost:5000/api/page/
+put http://localhost:5000/api/profile/
 Content-Type: application/json
 Authorization: Bare eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MTVjNzgwNWM0MjAwMGQ0ZWFmM2M1OGEiLCJpYXQiOjE2MzM0NTI0MjZ9.VTwgjSxUUITEcOsS3OiWiSCHFxw99ZJGuHA39hOSaOg
 
 {
-    "fullName": "Lê Thành Đạt",
-    "decription": "Cutô"
+    "avatar":"a"
 }
 ###
-get http://localhost:5000/api/links
+get https://mighty-sea-88194.herokuapp.com/api/profile
 Authorization: Bare eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MTVjNzgwNWM0MjAwMGQ0ZWFmM2M1OGEiLCJpYXQiOjE2MzM0NTI0MjZ9.VTwgjSxUUITEcOsS3OiWiSCHFxw99ZJGuHA39hOSaOg

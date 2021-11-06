@@ -1,34 +1,28 @@
-import Todolist from '../components/home/todolist'
 import React, { useState, useEffect } from 'react'
-import PropTypes from 'prop-types'
-import { addTodo, deleteTodo, getTodos } from '../store/actions/todosAction'
-import { loadUser } from '../store/actions/authAction'
-import { connect } from 'react-redux'
-import { Link, Redirect } from 'react-router-dom'
-import 'boxicons';
+import { Link } from 'react-router-dom'
 import css from '../components/home/css/styles.module.css'
-
-
-import introImg from '../components/home/img/intro.35f07489.png'
-import intro2Img from '../components/home/img/two_banner_right_xx.png'
-import use1Img from '../components/home/img/f_night_img_2.png'
-import use2Img from '../components/home/img/f_night_img_1.png'
-import use3Img from '../components/home/img/f_night_img_3.png'
-import product1Img from '../components/home/img/black_fullname_back_copy_8ecfd5443ccb4c4899ed1a60c89807cd_grande.png'
-import product2Img from '../components/home/img/po_black_14a4812d9bd1437bb39fe1b5abf1715f_1024x1024.png'
-import product3Img from '../components/home/img/po_white_b8a9ff68c9364aa69a76319862b6781a_1024x1024.png'
-import demoImg from '../components/home/img/4.857c1fba.jpg'
-import demo1Img from '../components/home/img/card1.png'
-import demo2Img from '../components/home/img/card2.png'
-import demo3Img from '../components/home/img/card3.jpeg'
-import theme from '../components/admin/theme'
+import { image } from '../assets'
 
 
 
 
-
-export const Home = ({ auth }) => {
+export const Home = () => {
     document.title = 'itap - thẻ cá nhân thông minh'
+
+    const {
+        introImg,
+        intro2Img,
+        use1Img,
+        use2Img,
+        use3Img,
+        product1Img,
+        product2Img,
+        product3Img,
+        demoImg,
+        demo1Img,
+        demo2Img,
+        demo3Img } = image
+
     const ingArr = [demoImg, demo1Img, demo2Img, demo3Img]
     const [Demo, setDemo] = useState(demoImg);
     const [Mobile, setMobile] = useState(false);
@@ -41,10 +35,7 @@ export const Home = ({ auth }) => {
             } else { setDark(false) }
         }
     }, [])
-    // console.log(auth)
-    // console.log(Mobile)
     const [CustomCard, setCustomCard] = useState('Nhập tên bạn');
-    let body
     const submit = (e) => {
         e.preventDefault()
         alert(`Cảm ơn ${CustomCard}. Bài tập lớn môn ktpm thôi, có phải hàng thật đâu mà mua =))`)
@@ -56,10 +47,6 @@ export const Home = ({ auth }) => {
     }
     return (
         <div style={{ height: '100%' }} className={`${css.body} ${Dark ? css.custom_dark_theme : css.custom_theme}`}>
-            {/* <!--========== SCROLL TOP ==========--> */}
-            <a href="#" className={css.scrolltop} id="scroll-top">
-                {/* <i class='bx bx-up-arrow-alt scrolltop__icon'></i> */}
-            </a>
 
             {/* <!--========== HEADER ==========--> */}
             <header className={`${css.l_header} ${css.scroll_header}`} id="header">
@@ -79,8 +66,8 @@ export const Home = ({ auth }) => {
                             <li className={css.nav__item}>
                                 <input type="checkbox" className={css.checkbox} id="chk" onChange={setUpdark} />
                                 <label className={css.label} htmlFor="chk" >
-                                    <box-icon type='solid' name='moon' color='#f1c40f'></box-icon>
-                                    <box-icon name='sun' type='solid' color='#f39c12'></box-icon>
+                                    <i className='bx bxs-moon bx-md' style={{ color: '#f1c40f' }}></i>
+                                    <i className='bx bxs-sun bx-md' style={{ color: '#f39c12' }}></i>
                                     <div className={`${css.ball} ${Dark ? css.ball_checked : ''}`}></div>
                                 </label>
                             </li>
@@ -88,7 +75,8 @@ export const Home = ({ auth }) => {
                     </div>
 
                     <div className={css.nav__toggle} id="nav-toggle">
-                        <box-icon name='menu' onClick={() => { setMobile(!Mobile) }}></box-icon>
+                        <i className='bx bx-menu bx-md' onClick={() => { setMobile(!Mobile) }}></i>
+
                     </div>
                 </nav>
             </header >
@@ -118,10 +106,10 @@ export const Home = ({ auth }) => {
                         <div className={css.share__data}>
                             <h2 className={css.section_title_center}>Kết nối chuyên nghiệp hiện đại</h2>
                             <div className={css.home__description}>
-                                <h3><box-icon name='check' color="#42b72a"></box-icon>&nbsp;Không thu phí hàng tháng</h3 >
-                                <h3><box-icon name='check' color="#42b72a"></box-icon>&nbsp;Đổi thông tin không giới hạn</h3>
-                                <h3><box-icon name='check' color="#42b72a"></box-icon>&nbsp;Không giới hạn số lần chạm thẻ</h3>
-                                <h3><box-icon name='check' color="#42b72a"></box-icon>&nbsp;An toàn, không yêu cầu quyền truy cập và mật khẩu
+                                <h3> <i className='bx bx-check bx-md' style={{ color: '#42b72a' }}></i>&nbsp;Không thu phí hàng tháng</h3 >
+                                <h3><i className='bx bx-check bx-md' style={{ color: '#42b72a' }}></i>&nbsp;Đổi thông tin không giới hạn</h3>
+                                <h3><i className='bx bx-check bx-md' style={{ color: '#42b72a' }}></i>&nbsp;Không giới hạn số lần chạm thẻ</h3>
+                                <h3><i className='bx bx-check bx-md' style={{ color: '#42b72a' }}></i>&nbsp;An toàn, không yêu cầu quyền truy cập và mật khẩu
                                 </h3>
 
                             </div >
@@ -172,7 +160,7 @@ export const Home = ({ auth }) => {
                             <h3 className={css.accessory__title}>Snow Globe</h3>
                             <span className={css.accessory__category}>Accessory</span>
                             <span className={css.accessory__preci}>$9.45</span>
-                            < a href="#" className={`${css.button} ${css.accessory__button}`}><box-icon name='cart-download' type='solid' color='#fff'></box-icon></a>
+                            < a href="#" className={`${css.button} ${css.accessory__button}`}><i className='bx bxs-cart-add bx-lg' ></i></a>
                         </div >
                         <div className={css.accessory__content}>
                             <img src={product1Img} alt=""
@@ -180,7 +168,7 @@ export const Home = ({ auth }) => {
                             <h3 className={css.accessory__title}>Snow Globe</h3>
                             <span className={css.accessory__category}>Accessory</span>
                             <span className={css.accessory__preci}>$9.45</span>
-                            < a href="#" className={`${css.button} ${css.accessory__button}`}><box-icon name='cart-download' type='solid' color='#fff'></box-icon></a>
+                            < a href="#" className={`${css.button} ${css.accessory__button}`}><i className='bx bxs-cart-add bx-lg' ></i></a>
                         </div >
                         <div className={css.accessory__content}>
                             <img src={product1Img} alt=""
@@ -188,7 +176,7 @@ export const Home = ({ auth }) => {
                             <h3 className={css.accessory__title}>Snow Globe</h3>
                             <span className={css.accessory__category}>Accessory</span>
                             <span className={css.accessory__preci}>$9.45</span>
-                            < a href="#" className={`${css.button} ${css.accessory__button}`}><box-icon name='cart-download' type='solid' color='#fff'></box-icon></a>
+                            < a href="#" className={`${css.button} ${css.accessory__button}`}><i className='bx bxs-cart-add bx-lg' ></i></a>
                         </div >
                         <div className={css.accessory__content}>
                             <img src={product3Img} alt=""
@@ -196,7 +184,7 @@ export const Home = ({ auth }) => {
                             <h3 className={css.accessory__title}>Snow Globe</h3>
                             <span className={css.accessory__category}>Accessory</span>
                             <span className={css.accessory__preci}>$9.45</span>
-                            < a href="#" className={`${css.button} ${css.accessory__button}`}><box-icon name='cart-download' type='solid' color='#fff'></box-icon></a>
+                            < a href="#" className={`${css.button} ${css.accessory__button}`}><i className='bx bxs-cart-add bx-lg' ></i></a>
                         </div >
                         <div className={css.accessory__content}>
                             <img src={product2Img} alt=""
@@ -204,10 +192,8 @@ export const Home = ({ auth }) => {
                             <h3 className={css.accessory__title}>Snow Globe</h3>
                             <span className={css.accessory__category}>Accessory</span>
                             <span className={css.accessory__preci}>$9.45</span>
-                            < a href="#" className={`${css.button} ${css.accessory__button}`}><box-icon name='cart-download' type='solid' color='#fff'></box-icon></a>
+                            < a href="#" className={`${css.button} ${css.accessory__button}`}><i className='bx bxs-cart-add bx-lg' ></i></a>
                         </div >
-
-
                     </div >
                 </section >
 
@@ -278,9 +264,9 @@ export const Home = ({ auth }) => {
                     <div className={css.footer__content}>
                         < h3 className={
                             css.footer__title}>Theo dõi <strong style={{ fontSize: '25px' }}>itap</strong></h3>
-                        <a href="#" className={css.footer__social}><box-icon name='facebook-circle' type='logo' ></box-icon></a>
-                        <a href="#" className={css.footer__social}><box-icon name='youtube' type='logo' ></box-icon></a>
-                        <a href="#" className={css.footer__social}><box-icon name='instagram-alt' type='logo' ></box-icon></a>
+                        <a href="#" className={css.footer__social}><i className='bx bxl-facebook-circle bx-lg' ></i></a>
+                        <a href="#" className={css.footer__social}><i className='bx bxl-instagram bx-lg'></i></a>
+                        <a href="#" className={css.footer__social}><i className='bx bxl-github bx-lg' ></i></a>
                     </div>
                 </div >
 
@@ -291,13 +277,4 @@ export const Home = ({ auth }) => {
 }
 
 
-
-const mapStateToProps = (state) => ({
-    auth: state.auth
-})
-
-const mapDispatchToProps = {
-
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Home)
+export default Home

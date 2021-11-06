@@ -2,19 +2,17 @@ import React from 'react'
 import css from './style.module.css'
 import PropTypes from 'prop-types'
 
-import coverImage from '../../assets/bia.jpg'
+import coverImage from '../../assets/cover.png'
 import avatarImage from '../../assets/avatar.jpg'
-import linkImage from '../../assets/link.png'
 
 const isUser = props => {
     const data = props.data
-    console.log(data)
     document.title = data.Profile?.fullName || `@${data?.username}`
     const cover = {
         position: 'relative',
         width: '100%',
         height: '200px',
-        backgroundImage: `url(${coverImage})`,
+        backgroundImage: `url(${data?.Profile?.cover === 'default' ? coverImage : data?.Profile?.cover})`,
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
         backgroundPosition: '50% 50%',
@@ -27,7 +25,7 @@ const isUser = props => {
                 <div className={css.header} >
                     <div style={cover}>
                         <div className={css.avatar} >
-                            <img className={css.avatarImg} src={avatarImage} alt="" />
+                            <img className={css.avatarImg} src={data?.Profile?.avatar === 'default' ? avatarImage : data?.Profile?.avatar} alt="" />
                         </div>
                     </div>
                     <div className={css.Name} >

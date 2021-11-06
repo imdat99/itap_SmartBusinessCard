@@ -1,11 +1,8 @@
-import React, { useState, useEffect } from 'react'
-import { connect } from 'react-redux'
-import { updatePost } from '../../../store/actions/postsAction'
-
+import React from 'react'
 import closebtn from '../../Auth/common/images/close.png'
 import css from '../../Auth/common/css/styles2.module.css'
 
-function Editlink({ updatePost, trigger, setTrigger, reff, bind_titleUrl, titleurl, idPost }) {
+function Editlink({ updatePost, trigger, setTrigger, reff, bind_titleUrl, titleurl }) {
 
 
     const { title, url, type } = titleurl
@@ -52,11 +49,11 @@ function Editlink({ updatePost, trigger, setTrigger, reff, bind_titleUrl, titleu
                         </div>
                         <p className={css.param_type} style={{ padding: '10px' }}>Loại liên kết </p>
                         <div className={css.type_radio} onChange={onChangePostForm}>
-                            <input className={css.radio__input} type="radio" value="default" name="type" id="myRadio1" defaultChecked={type == 'default'} />
+                            <input className={css.radio__input} type="radio" value="default" name="type" id="myRadio1" defaultChecked={type === 'default'} />
                             <label className={css.radio__lable} htmlFor="myRadio1">Mặc định</label>
-                            <input className={css.radio__input} type="radio" value="tel" name="type" id="myRadio2" defaultChecked={type == 'tel'} />
+                            <input className={css.radio__input} type="radio" value="tel" name="type" id="myRadio2" defaultChecked={type === 'tel'} />
                             <label className={css.radio__lable} htmlFor="myRadio2">Số điện thoại</label>
-                            <input className={css.radio__input} type="radio" value="mail" name="type" id="myRadio3" defaultChecked={type == 'mail'} />
+                            <input className={css.radio__input} type="radio" value="mail" name="type" id="myRadio3" defaultChecked={type === 'mail'} />
                             <label className={css.radio__lable} htmlFor="myRadio3">Email</label>
                         </div>
                         <button className={`${css.formLogInBtn} `}>Sửa</button>
@@ -71,13 +68,5 @@ function Editlink({ updatePost, trigger, setTrigger, reff, bind_titleUrl, titleu
         : ''
 }
 
-const mapStateToProps = (state) => ({
-
-})
-
-const mapDispatchToProps = {
-    updatePost
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Editlink)
+export default React.memo(Editlink)
 

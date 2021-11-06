@@ -1,13 +1,14 @@
-import { Router, Redirect, Route } from "react-router-dom"
+import { Redirect, Route } from "react-router-dom"
 import { connect } from 'react-redux'
 import Navbar from "../components/navbar"
 
-const ProtectedRoute = ({ auth, component: Component, ...rest }) => {
-    console.log(auth)
+const ProtectedRoute = ({ auth, CustomProps, component: Component, ...rest }) => {
     return (
         <Route {...rest} render={props => auth.isAuthenticated ? (
-            <> <Navbar />
-                <Component {...props} />
+            <>
+                <Navbar />
+
+                <Component {...rest} {...props} CustomProps={CustomProps} />
             </>) : <Redirect to='/login' />} />
     )
 }

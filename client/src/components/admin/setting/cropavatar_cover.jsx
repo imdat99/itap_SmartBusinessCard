@@ -1,16 +1,14 @@
 import React, { useState } from 'react'
-import { connect } from 'react-redux'
 import AvatarEditor from 'react-avatar-editor'
-import styled from 'styled-components'
 
-import { updatePost } from '../../../store/actions/postsAction'
 import closebtn from '../../Auth/common/images/close.png'
 import css from '../../Auth/common/css/styles2.module.css'
+import Loader from '../../common/loader'
 
 
 
 function Crop_Cover_avatar(props) {
-    console.log(props)
+    const [onLoad, setonLoad] = useState(false);
     const [scale_value, setscale_value] = useState(1);
     const [editor, set_editor] = useState(null);
     const [size, set_size] = useState({ width: null, height: null })
@@ -20,10 +18,15 @@ function Crop_Cover_avatar(props) {
     const setEditorRef = editor_ => set_editor(editor_);
     const onCrop = async () => {
         if (editor !== null) {
+            setonLoad(true)
+            // console.log(editor)
             const url = editor.getImageScaledToCanvas().toDataURL();
-            const response = await props.updatePost({ _id: props.idPost, thumbnailImage: url })
-            // console.log(props.idPost)
-            if (response.success) props.setTrigger()
+            const response = await props.updateProfile(props.isAvatar ? { avatar: url } : { cover: url })
+
+            if (response.success) {
+                setonLoad(false)
+                props.setTrigger()
+            }
         }
     };
     return (props.trigger) ?
@@ -33,6 +36,9 @@ function Crop_Cover_avatar(props) {
                 < div style={{ margin: 'auto' }}>
                     <div className={css.formContainer} style={{ maxWidth: 'unset' }} ref={props.abcd}>
                         < div className={css.form} style={{ padding: '0', width: 'unset' }} >
+                            <div className={css.onLoad} style={!onLoad ? { display: 'none' } : {}}>
+                                <Loader></Loader>
+                            </div>
                             <div className={css.formTitle} style={{ padding: '16px 16px 16px 16px' }}>
                                 <h3>{props.isAvatar ? 'Chọn ảnh đại diện' : 'Chọn ảnh bìa'}</h3>
                                 <div onClick={() => {
@@ -80,13 +86,6 @@ function Crop_Cover_avatar(props) {
         : ''
 }
 
-const mapStateToProps = (state) => ({
 
-})
-
-const mapDispatchToProps = {
-    updatePost
-}
-
-export default React.memo(connect(mapStateToProps, mapDispatchToProps)(Crop_Cover_avatar))
+export default React.memo(Crop_Cover_avatar)
 
