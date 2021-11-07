@@ -24,9 +24,12 @@ function Cropthumb(props) {
             props.setTrigger(false)
         }
     };
-    const submit = (e) => {
+    const submit = async () => {
         // e.preventDefault();
-        // props.updatePost(props.idPost)
+        const res = await props.updatePost({ _id: props.idPost, activated: !IsActive })
+        // console.log(res)
+        // setIsActive(!IsActive)
+        // props.updatePost(props.idPost,{})
         // console.log(props.idPost)
     }
     return (props.trigger) ?
