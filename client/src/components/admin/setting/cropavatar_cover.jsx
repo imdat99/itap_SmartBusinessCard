@@ -11,7 +11,6 @@ function Crop_Cover_avatar(props) {
     const [onLoad, setonLoad] = useState(false);
     const [scale_value, setscale_value] = useState(1);
     const [editor, set_editor] = useState(null);
-    const [size, set_size] = useState({ width: null, height: null })
     const onScaleChange = (e) => {
         setscale_value((e.target.value / 10))
     }

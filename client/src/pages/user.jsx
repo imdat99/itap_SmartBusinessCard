@@ -4,7 +4,7 @@ import axios from 'axios'
 import { withRouter } from 'react-router-dom'
 import IsUser from '../components/user/isUser'
 import Notfound404 from '../components/common/Notfound404'
-import Loadding from '../components/common/loadding'
+import Loader from '../components/common/loader'
 
 
 const User = (props) => {
@@ -21,7 +21,7 @@ const User = (props) => {
     }, [])
     return (
         // <IsUser />
-        isLoading ? (<IsUser><Loadding /></IsUser>) :
+        isLoading ? (<Loader />) :
             isFound ? <IsUser data={UserData} /> : <Notfound404 />
     )
 }

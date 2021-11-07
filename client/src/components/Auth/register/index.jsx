@@ -72,7 +72,7 @@ function Register({ getRegister, trigger, setTrigger, reff }) {
                     <div style={{ margin: '10px 0 20px 0' }} className={css.divider}></div>
                     <div style={{ display: 'flex', flexDirection: 'column', padding: '0 16px 24px 16px' }}>
                         <div className={`${css.inputContainer} ${Error.User ? css.inputError : ''}`}>
-                            <input type="text" placeholder="Tên tài khoản" className={css.formInput}
+                            <input type="text" autoComplete="off" placeholder="Tên tài khoản" className={css.formInput}
                                 required
                                 name='username'
                                 value={username}

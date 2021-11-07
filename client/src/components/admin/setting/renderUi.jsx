@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import QRCode from "react-qr-code";
-import { Redirect, Link } from 'react-router-dom';
 import { useDetectOutsideClick } from '../../../middleWare/detectOutsideClick';
 import css from './setting.module.css'
 import coverImage from '../../../assets/cover.png'
@@ -18,7 +17,8 @@ export const RenderSettingUi = ({
     handleChangeNameDesc,
     info,
     set_info,
-    username
+    username,
+    deleteImage
 }) => {
     const [editName, set_editName] = useState(false)
     const [editdesc, set_editdesc] = useState(false)
@@ -54,7 +54,10 @@ export const RenderSettingUi = ({
                             </div>
                             <div className={`${css.img_option} ${css.option_cover}`} style={!ChangeCover ? { display: 'none' } : {}} ref={ref_ChangeCover}>
                                 <ul className={css.option_content} >
-                                    <li><button className={`${css.custom_btn} ${css.delete}`} >xoá</button></li>
+                                    <li><button className={`${css.custom_btn} ${css.delete}`} onClick={() => {
+                                        set_ChangeCover(false);
+                                        deleteImage(false)
+                                    }}>xoá</button></li>
                                     <li>
                                         <label htmlFor="coverImg" className={`${css.custom_btn} ${css.upload}`}>tải lên</label>
                                         <input style={{ display: 'none' }} id="coverImg" type="file" name="imgCover" accept="image/png, image/jpeg" onChange={e => {
@@ -66,7 +69,10 @@ export const RenderSettingUi = ({
                             </div>
                             <div className={css.img_option} style={!ChangeAvatar ? { display: 'none' } : {}} ref={ref_ChangeAvatar}>
                                 <ul className={css.option_content}>
-                                    <li><button className={`${css.custom_btn} ${css.delete}`} >xoá</button></li>
+                                    <li><button className={`${css.custom_btn} ${css.delete}`} onClick={() => {
+                                        set_ChangeAvatar(false);
+                                        deleteImage(true)
+                                    }}>xoá</button></li>
                                     <li>
                                         <label htmlFor="avatar" className={`${css.custom_btn} ${css.upload}`}>tải lên</label>
                                         <input style={{ display: 'none' }} id="avatar" type="file" name="imgAvatar" accept="image/png, image/jpeg" onChange={e => {
@@ -101,7 +107,7 @@ export const RenderSettingUi = ({
                                 <div style={{ display: 'flex', flexDirection: 'column', padding: '0 16px' }}>
                                     <div className={`${css.inputContainer} ${Error.User ? css.inputError : ''}`}>
                                         <label htmlFor="changeName"></label>
-                                        <input type="text" id='changeName' placeholder={data.fullName === '' ? 'Thêm tên của bạn' : data.fullName} className={css.formInput}
+                                        <input type="text" autoComplete="off" id='changeName' placeholder={data.fullName === '' ? 'Thêm tên của bạn' : data.fullName} className={css.formInput}
                                             required
                                             name='fullName'
                                             value={fullName}
@@ -242,9 +248,9 @@ export const RenderSettingUi = ({
                                 <div className={css.changepassHeader}  >
                                     <h1>Đường dẫn và mã QR của bạn</h1>
                                     <div style={{ textAlign: 'center', margin: '15px 0' }}>
-                                        <QRCode size={256} value={`http://localhost:3000/${username}`} />
-                                        <h5 style={{ marginTop: '15px' }} onClick={(e) => { window.open(`http://localhost:3000/${username}`, '_blank'); }}>
-                                            {`http://localhost:3000/${username}`}</h5>
+                                        <QRCode size={256} value={`https://itap.netlify.app/${username}`} />
+                                        <h5 style={{ marginTop: '15px' }} onClick={(e) => { window.open(`https://itap.netlify.app/${username}`, '_blank'); }}>
+                                            {`https://itap.netlify.app/${username}`}</h5>
                                     </div>
 
                                 </div>

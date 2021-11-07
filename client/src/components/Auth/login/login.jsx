@@ -73,6 +73,7 @@ export const Login = ({ getLogin, auth }) => {
                             <div className={`${stl.inputContainer} ${isError ? stl.inputError : ''}`}>
                                 < input type="text" placeholder="Tài khoản" className={stl.formInput}
                                     required
+                                    autoComplete='off'
                                     name='username'
                                     value={username}
                                     onChange={onChangeLoginForm}
@@ -89,13 +90,13 @@ export const Login = ({ getLogin, auth }) => {
                                     }}
                                 />
                                 <div className={`${stl.passwordEyeContainer} ${Eye.isOn ? '' : stl.hidden}`}>
-                                    <img onClick={() => { setEye({ ...Eye, isShow: !Eye.isShow }) }} src={Eye.isShow ? eyeOff : eye} className={stl.passwordEye} />
+                                    <img onClick={() => { setEye({ ...Eye, isShow: !Eye.isShow }) }} src={Eye.isShow ? eyeOff : eye} className={stl.passwordEye} alt='' />
                                 </div>
                             </div >
                             <button className={stl.formLogInBtn}>Đăng nhập</button>
-                            < a onClick={() => { setFindPass(true) }} className={stl.formForgotPassword}>Quên mật khẩu?</a>
+                            <div onClick={() => { setFindPass(true) }} className={stl.formForgotPassword}>Quên mật khẩu?</div>
                             < div className={stl.divider}></div>
-                            <a onClick={() => { setSignUp(true) }} className={stl.formCreateAccountBtn}>Tạo tài khoản mớI</a>
+                            <div onClick={() => { setSignUp(true) }} className={stl.formCreateAccountBtn}>Tạo tài khoản mớI</div>
                         </form >
                     </div >
                 </main >

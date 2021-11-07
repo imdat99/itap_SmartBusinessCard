@@ -1,5 +1,5 @@
 
-import React, { useEffect, useState, useCallback } from 'react'
+import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux';
 import RenderIndexUi from './renderUi';
 import { useDetectOutsideClick } from '../../../middleWare/detectOutsideClick';
@@ -47,13 +47,13 @@ const AdminIndex = ({ Posts, updatePost, isLoading, addPost, deletePost }) => {
         file: null,
         _id: null
     })
-    const handle_set_thumbnail = useCallback(() => {
+    const handle_set_thumbnail = () => {
         set_thumbnail({
             visiable: false,
             file: null,
             _id: null
         })
-    }, [])
+    }
 
     const thumbnailChange = (e) => {
         const file = e.target.files[0];
@@ -71,13 +71,13 @@ const AdminIndex = ({ Posts, updatePost, isLoading, addPost, deletePost }) => {
     };
 
     const deletethumb = async (_id) => {
-        const res = await updatePost({ _id, thumbnailImage: 'default' })
+        await updatePost({ _id, thumbnailImage: 'default' })
     }
 
 
     // set activate
     const setactive = async (_id, activated) => {
-        const res = await updatePost({ _id, activated })
+        await updatePost({ _id, activated })
     }
 
     const QuickCss = {
@@ -166,6 +166,6 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = {
-    updatePost, addPost, deletePost, addPost
+    updatePost, addPost, deletePost
 }
 export default connect(mapStateToProps, mapDispatchToProps)(AdminIndex)

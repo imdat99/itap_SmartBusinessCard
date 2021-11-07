@@ -99,17 +99,29 @@ const HandleSetting = ({ getLogout, updateProfile, profile, username }) => {
             }
         }
     }
+    //delete avatar _ cover 
+    const deleteImage = async (isDeleteAvatar) => {
+        await updateProfile(isDeleteAvatar ? { avatar: 'default' } : { cover: 'default' })
+    }
     return (
         <>
             <RenderSettingUi
+                //avatar _ cover
                 data={profile}
                 imgChange={imgChange}
+                deleteImage={deleteImage}
+
+                //log out
                 getLogout={getLogout}
+
+                //change pass
                 passwordData={passwordData}
                 set_passwordData={set_passwordData}
                 changePassStatus={changePassStatus}
                 handleChangePass={handleChangePass}
                 onChangePass={onChangePass}
+
+                // Change name _ info
                 onChangeNameDesc={onChangeNameDesc}
                 handleChangeNameDesc={handleChangeNameDesc}
                 info={info}

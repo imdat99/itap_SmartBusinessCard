@@ -1,21 +1,9 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 import closebtn from '../common/images/close.png'
 import css from '../common/css/styles2.module.css'
 
 function Findpass(props) {
-    // document.title = 'Findpass'
-    const [userName, setuserName] = useState('')
-    const [passWord, setpassWord] = useState('')
-    const submit = (e) => {
-        e.preventDefault();
-        const data = {
-            ...userName,
-            ...passWord
-        }
-        console.log(data)
-        // getLogin(data)
-    }
     return (props.trigger) ?
         <main className={css.container}>
             < div style={{ margin: 'auto' }}>

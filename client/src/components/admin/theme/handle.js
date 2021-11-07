@@ -11,7 +11,7 @@ export const Theme = (props) => {
 
     return (
         <>
-            <React.Suspense fallback={<Loader />}>
+            <Suspense fallback={<Loader />}>
 
                 <RenderUi
                     set_warn={set_warn}
@@ -21,7 +21,7 @@ export const Theme = (props) => {
                     setTrigger={set_warn}
                     abcd={ref_warn}
                 />
-            </React.Suspense>
+            </Suspense>
 
         </>
     )

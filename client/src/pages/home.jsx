@@ -30,7 +30,7 @@ export const Home = () => {
     useEffect(() => {
         if (localStorage['selected_theme']) {
             const Theme = localStorage.getItem('selected_theme')
-            if (Theme == 'Darkxxx') {
+            if (Theme === 'Darkxxx') {
                 setDark(true)
             } else { setDark(false) }
         }
@@ -95,7 +95,7 @@ export const Home = () => {
                             <p className={css.home__description}>Chạm thẻ Metap vào điện thoại để chia sẻ thông tin, giảm thời gian trao
                                 đổi các mạng xã hội như Facebook, Instagram, Zalo, Số điện thoại, Email và thông tin liên lạc
                             </p >
-                            <a href="#" className={css.button}>Get Started</a>
+                            <Link to='/login' className={css.button}>Get Started</Link>
                         </div >
                     </div >
                 </section >
@@ -160,7 +160,7 @@ export const Home = () => {
                             <h3 className={css.accessory__title}>Snow Globe</h3>
                             <span className={css.accessory__category}>Accessory</span>
                             <span className={css.accessory__preci}>$9.45</span>
-                            < a href="#" className={`${css.button} ${css.accessory__button}`}><i className='bx bxs-cart-add bx-lg' ></i></a>
+                            <Link to='/login' className={`${css.button} ${css.accessory__button}`}><i className='bx bxs-cart-add bx-lg' ></i></Link>
                         </div >
                         <div className={css.accessory__content}>
                             <img src={product1Img} alt=""
@@ -168,7 +168,7 @@ export const Home = () => {
                             <h3 className={css.accessory__title}>Snow Globe</h3>
                             <span className={css.accessory__category}>Accessory</span>
                             <span className={css.accessory__preci}>$9.45</span>
-                            < a href="#" className={`${css.button} ${css.accessory__button}`}><i className='bx bxs-cart-add bx-lg' ></i></a>
+                            < Link to='/login' className={`${css.button} ${css.accessory__button}`}><i className='bx bxs-cart-add bx-lg' ></i></Link>
                         </div >
                         <div className={css.accessory__content}>
                             <img src={product1Img} alt=""
@@ -176,7 +176,7 @@ export const Home = () => {
                             <h3 className={css.accessory__title}>Snow Globe</h3>
                             <span className={css.accessory__category}>Accessory</span>
                             <span className={css.accessory__preci}>$9.45</span>
-                            < a href="#" className={`${css.button} ${css.accessory__button}`}><i className='bx bxs-cart-add bx-lg' ></i></a>
+                            < Link to='/login' className={`${css.button} ${css.accessory__button}`}><i className='bx bxs-cart-add bx-lg' ></i></Link>
                         </div >
                         <div className={css.accessory__content}>
                             <img src={product3Img} alt=""
@@ -184,7 +184,7 @@ export const Home = () => {
                             <h3 className={css.accessory__title}>Snow Globe</h3>
                             <span className={css.accessory__category}>Accessory</span>
                             <span className={css.accessory__preci}>$9.45</span>
-                            < a href="#" className={`${css.button} ${css.accessory__button}`}><i className='bx bxs-cart-add bx-lg' ></i></a>
+                            < Link to='/login' className={`${css.button} ${css.accessory__button}`}><i className='bx bxs-cart-add bx-lg' ></i></Link>
                         </div >
                         <div className={css.accessory__content}>
                             <img src={product2Img} alt=""
@@ -192,7 +192,7 @@ export const Home = () => {
                             <h3 className={css.accessory__title}>Snow Globe</h3>
                             <span className={css.accessory__category}>Accessory</span>
                             <span className={css.accessory__preci}>$9.45</span>
-                            < a href="#" className={`${css.button} ${css.accessory__button}`}><i className='bx bxs-cart-add bx-lg' ></i></a>
+                            < Link to='/login' className={`${css.button} ${css.accessory__button}`}><i className='bx bxs-cart-add bx-lg' ></i></Link>
                         </div >
                     </div >
                 </section >
@@ -202,7 +202,7 @@ export const Home = () => {
                     <div className={`${css.send__container} ${css.bd_container} ${css.bd_grid}`}>
                         <div className={css.send__img}>
                             <img src={Demo} alt="" />
-                            <h1 className={css.custom_card} style={Demo == demo2Img || Demo == demo3Img ? { color: '#fff' } : { color: '#000000' }}>{CustomCard}</h1>
+                            <h1 className={css.custom_card} style={Demo === demo2Img || Demo === demo3Img ? { color: '#fff' } : { color: '#000000' }}>{CustomCard}</h1>
                         </div >
                         <div className={css.send__content}>
                             < h2 className={`${css.section_title_center} ${css.send__title}`}>Loại thẻ: Thẻ RGB đen</h2>
@@ -236,7 +236,7 @@ export const Home = () => {
                 <div className={`${css.footer__container} ${css.bd_container} ${css.bd_grid}`} >
                     <div className={css.footer__content}>
                         <h3 className={css.footer__title}>
-                            <a href="#" className={css.footer__logo}>itap</a>
+                            <Link to='/login' className={css.footer__logo}>itap</Link>
                         </h3>
                         <p className={css.footer__description}>Thẻ cá nhân thông minh <br /> itap - business card</p>
                     </div >
@@ -245,9 +245,9 @@ export const Home = () => {
                         < h3 className={
                             css.footer__title}>Dịch vụ</h3>
                         <ul>
-                            < li > <a href="#" className={css.footer__link}>Đăng kí tài khoản</a></li>
-                            < li > <a href="#" className={css.footer__link}>Mua thẻ </a></li>
-                            < li > <a href="#" className={css.footer__link}>Mua miếng dán</a></li>
+                            < li > <Link to='/login' className={css.footer__link}>Đăng kí tài khoản</Link></li>
+                            < li > <Link to='/login' className={css.footer__link}>Mua thẻ </Link></li>
+                            < li > <Link to='/login' className={css.footer__link}>Mua miếng dán</Link></li>
                         </ul >
                     </div >
 
@@ -255,18 +255,18 @@ export const Home = () => {
                         < h3 className={
                             css.footer__title}>The fifth Group</h3>
                         <ul>
-                            < li > <a href="#" className={css.footer__link}>Điều khoản</a></li>
-                            < li > <a href="#" className={css.footer__link}>About us</a></li>
-                            {/* <!-- <li><a href="#" className={css.footer__link}>Our mision</a></li> --> */}
+                            < li > <Link to='/login' className={css.footer__link}>Điều khoản</Link></li>
+                            < li > <Link to='/login' className={css.footer__link}>About us</Link></li>
+                            {/* <!-- <li><Link to='/login' className={css.footer__link}>Our mision</Link></li> --> */}
                         </ul >
                     </div >
 
                     <div className={css.footer__content}>
                         < h3 className={
                             css.footer__title}>Theo dõi <strong style={{ fontSize: '25px' }}>itap</strong></h3>
-                        <a href="#" className={css.footer__social}><i className='bx bxl-facebook-circle bx-lg' ></i></a>
-                        <a href="#" className={css.footer__social}><i className='bx bxl-instagram bx-lg'></i></a>
-                        <a href="#" className={css.footer__social}><i className='bx bxl-github bx-lg' ></i></a>
+                        <Link to='/login' className={css.footer__social}><i className='bx bxl-facebook-circle bx-lg' ></i></Link>
+                        <Link to='/login' className={css.footer__social}><i className='bx bxl-instagram bx-lg'></i></Link>
+                        <Link to='/login' className={css.footer__social}><i className='bx bxl-github bx-lg' ></i></Link>
                     </div>
                 </div >
 
