@@ -60,8 +60,7 @@ const isUser = props => {
             <div className={css.footer} >
                 <h5>© 2021 Dat.lt18</h5>
             </div>
-
-            {props.children}</>
+        </>
     )
 }
 

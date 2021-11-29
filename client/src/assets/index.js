@@ -6,10 +6,14 @@ import use3Img from './img/f_night_img_3.png'
 import product1Img from './img/black_fullname_back_copy_8ecfd5443ccb4c4899ed1a60c89807cd_grande.png'
 import product2Img from './img/po_black_14a4812d9bd1437bb39fe1b5abf1715f_1024x1024.png'
 import product3Img from './img/po_white_b8a9ff68c9364aa69a76319862b6781a_1024x1024.png'
+import theden1 from './img/theden1.png'
+import theden2 from './img/theden2.png'
 import demoImg from './img/4.857c1fba.jpg'
 import demo1Img from './img/card1.png'
 import demo2Img from './img/card2.png'
 import demo3Img from './img/card3.jpeg'
+import demo4Img from './img/5995966.jpg'
+
 
 import template0 from './templateCard/0.png'
 import template1 from './templateCard/1.png'
@@ -45,7 +49,10 @@ export const image = {
     demoImg,
     demo1Img,
     demo2Img,
-    demo3Img
+    demo3Img,
+    demo4Img,
+    theden1,
+    theden2
 }
 
 export const templateImg = [

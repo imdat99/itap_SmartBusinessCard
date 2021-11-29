@@ -27,9 +27,11 @@ function App({ loadUser, auth }) {
         <BrowserRouter>
           <Switch>
             <Route exact path='/'>
-              {(!auth.authLoading && auth.isAuthenticated) ? <Redirect to="/dash" /> : <Home />}
+              <Home isAuth={(!auth.authLoading && auth.isAuthenticated)} />
             </Route>
-            <Route exact path='/login' component={Login} />
+            <Route exact path='/login'>
+              {(!auth.authLoading && auth.isAuthenticated) ? <Redirect to="/dash" /> : <Login />}
+            </Route>
             <ProtectedRoute
               exact
               path='/dash'

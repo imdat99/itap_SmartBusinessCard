@@ -7,6 +7,7 @@ const authRouter = require("./routes/auth");
 const Links = require("./routes/Links");
 const Page = require('./routes/page')
 const profile = require('./routes/profile')
+const card = require('./routes/card')
 
 const connectDB = async () => {
     try {
@@ -32,6 +33,7 @@ app.use("/api/auth", authRouter);
 app.use("/api/Links", Links);
 app.use('/api/page', Page);
 app.use('/api/profile', profile)
+app.use('/api/card', card)
 
 connectDB();
 const port = process.env.PORT || 5000;

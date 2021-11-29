@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { getLogout } from '../../../store/actions/authAction'
 import { updateProfile } from '../../../store/actions/profileAction';
 import RenderSettingUi from './renderUi'
-import Crop_Cover_avatar from './cropavatar_cover';
+import CropCoveravatar from './cropavatar_cover'
 import { useDetectOutsideClick } from '../../../middleWare/detectOutsideClick';
 
 const HandleSetting = ({ getLogout, updateProfile, profile, username }) => {
@@ -128,7 +128,7 @@ const HandleSetting = ({ getLogout, updateProfile, profile, username }) => {
                 set_info={set_info}
                 username={username}
             />
-            <Crop_Cover_avatar
+            <CropCoveravatar
                 trigger={ImgToCrop.visiable}
                 isAvatar={ImgToCrop.isAvatar}
                 pickFile={ImgToCrop.file}

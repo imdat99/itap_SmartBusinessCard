@@ -30,11 +30,11 @@ router.get("/", verifyToken, async (req, res) => {
 // @access private
 
 router.put('/', verifyToken, async (req, res) => {
-    const { fullName, decription, avatar, cover } = req.body;
+    const { fullName, decription, avatar, cover, card } = req.body;
 
     try {
         let updatedProfile = {
-            fullName, decription, avatar, cover
+            fullName, decription, avatar, cover, card
         };
 
         const profilepdateCondition = { user_id: req.userId }

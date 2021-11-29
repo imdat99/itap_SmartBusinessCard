@@ -6,6 +6,7 @@ const profileSchema = new Schema({
     decription: String,
     avatar: String,
     cover: String,
+    card: String,
     user_id: {
         type: Schema.Types.ObjectId,
         ref: 'users'

@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react'
+import { apiUrl } from '../store/constantsValue'
+import axios from 'axios'
 import { Link } from 'react-router-dom'
 import css from '../components/home/css/styles.module.css'
 import { image } from '../assets'
@@ -6,9 +8,9 @@ import { image } from '../assets'
 
 
 
-export const Home = () => {
+export const Home = (props) => {
     document.title = 'itap - thẻ cá nhân thông minh'
-
+    const { isAuth } = props
     const {
         introImg,
         intro2Img,
@@ -21,10 +23,13 @@ export const Home = () => {
         demoImg,
         demo1Img,
         demo2Img,
-        demo3Img } = image
+        demo3Img,
+        demo4Img,
+        theden1,
+        theden2 } = image
 
-    const ingArr = [demoImg, demo1Img, demo2Img, demo3Img]
-    const [Demo, setDemo] = useState(demoImg);
+    const ingArr = [demoImg, demo1Img, demo2Img, demo3Img, demo4Img]
+    const [Demo, setDemo] = useState(0);
     const [Mobile, setMobile] = useState(false);
     const [Dark, setDark] = useState(false);
     useEffect(() => {
@@ -36,9 +41,10 @@ export const Home = () => {
         }
     }, [])
     const [CustomCard, setCustomCard] = useState('Nhập tên bạn');
-    const submit = (e) => {
+    const submit = async (e) => {
         e.preventDefault()
-        alert(`Cảm ơn ${CustomCard}. Bài tập lớn môn ktpm thôi, có phải hàng thật đâu mà mua =))`)
+        const res = await axios.post(`${apiUrl}/card`, { title: CustomCard, type: Demo })
+        alert(`Bạn đã mua thẻ thành công, mã thẻ của bạn là: ${res.data.newCard._id}`)
     }
 
     const setUpdark = () => {
@@ -61,7 +67,7 @@ export const Home = () => {
                             <li className={css.nav__item}><a href="#share" className={css.nav__link} onClick={() => { setMobile(false) }} >Hướng dẫn</a></li>
                             <li className={css.nav__item}><a href="#accessory" className={css.nav__link} onClick={() => { setMobile(false) }}>Sản phẩm</a></li>
                             <li className={css.nav__item}><a href="#demo" className={css.nav__link} onClick={() => { setMobile(false) }}>Demo</a></li>
-                            <li className={css.nav__item}><Link to='/login' href="#accessory" className={`${css.button} ${css.btn_mini}`}>Đăng nhập</Link></li>
+                            <li className={css.nav__item}><Link to={isAuth ? '/dash' : '/login'} className={`${css.button} ${css.btn_mini}`}>{isAuth ? 'Admin' : 'Đăng nhập'}</Link></li>
 
                             <li className={css.nav__item}>
                                 <input type="checkbox" className={css.checkbox} id="chk" onChange={setUpdark} />
@@ -113,10 +119,6 @@ export const Home = () => {
                                 </h3>
 
                             </div >
-
-                            {/* <!-- <h4 className={css.share__description">Sharing these holidays is the best gift you can give, give a present
-                        or share your love with the people you love the most and celebrate with great happiness.</h4> --> */}
-                            {/* <!-- <a href="#" className={css.button">Send a Gift</a> --> */}
                         </div >
 
                         <div className={css.share__img}>
@@ -133,19 +135,16 @@ export const Home = () => {
                             <img src={use1Img} alt="" className={css.decoration__img} />
                             <h3 className={css.decoration__title}>B1: Đăng kí tài khoản</h3>
                             <p>đăng kí nhanh chóng, dễ dàng</p>
-                            {/* <!-- <a href="#" className={css.button button-link">Go Shopping</a> --> */}
                         </div >
                         <div className={css.decoration__data}>
                             <img src={use2Img} alt="" className={css.decoration__img} />
                             <h3 className={css.decoration__title}>B1: Đăng kí tài khoản</h3>
                             <p>đăng kí nhanh chóng, dễ dàng</p>
-                            {/* <!-- <a href="#" className={css.button button-link">Go Shopping</a> --> */}
                         </div >
                         <div className={css.decoration__data}>
                             <img src={use3Img} alt="" className={css.decoration__img} />
                             <h3 className={css.decoration__title}>B1: Đăng kí tài khoản</h3>
                             <p>Hoạt động ổn định trên cả Android, IOS và PC</p>
-                            {/* <!-- <a href="#" className={css.button button-link">Go Shopping</a> --> */}
                         </div >
                     </div>
                 </section>
@@ -157,23 +156,31 @@ export const Home = () => {
                         <div className={css.accessory__content}>
                             <img src={product1Img} alt=""
                                 className={css.accessory__img} />
-                            <h3 className={css.accessory__title}>Snow Globe</h3>
+                            <h3 className={css.accessory__title}>Thẻ Trắng 1</h3>
                             <span className={css.accessory__category}>Accessory</span>
                             <span className={css.accessory__preci}>$9.45</span>
                             <Link to='/login' className={`${css.button} ${css.accessory__button}`}><i className='bx bxs-cart-add bx-lg' ></i></Link>
                         </div >
                         <div className={css.accessory__content}>
-                            <img src={product1Img} alt=""
+                            <img src={product2Img} alt=""
                                 className={css.accessory__img} />
-                            <h3 className={css.accessory__title}>Snow Globe</h3>
+                            <h3 className={css.accessory__title}>Thẻ Trắng 2</h3>
                             <span className={css.accessory__category}>Accessory</span>
                             <span className={css.accessory__preci}>$9.45</span>
                             < Link to='/login' className={`${css.button} ${css.accessory__button}`}><i className='bx bxs-cart-add bx-lg' ></i></Link>
                         </div >
                         <div className={css.accessory__content}>
-                            <img src={product1Img} alt=""
+                            <img src={theden1} alt=""
                                 className={css.accessory__img} />
-                            <h3 className={css.accessory__title}>Snow Globe</h3>
+                            <h3 className={css.accessory__title}>Thẻ Đen 1</h3>
+                            <span className={css.accessory__category}>Accessory</span>
+                            <span className={css.accessory__preci}>$9.45</span>
+                            < Link to='/login' className={`${css.button} ${css.accessory__button}`}><i className='bx bxs-cart-add bx-lg' ></i></Link>
+                        </div >
+                        <div className={css.accessory__content}>
+                            <img src={theden2} alt=""
+                                className={css.accessory__img} />
+                            <h3 className={css.accessory__title}>Thẻ Đen 2</h3>
                             <span className={css.accessory__category}>Accessory</span>
                             <span className={css.accessory__preci}>$9.45</span>
                             < Link to='/login' className={`${css.button} ${css.accessory__button}`}><i className='bx bxs-cart-add bx-lg' ></i></Link>
@@ -181,15 +188,7 @@ export const Home = () => {
                         <div className={css.accessory__content}>
                             <img src={product3Img} alt=""
                                 className={css.accessory__img} />
-                            <h3 className={css.accessory__title}>Snow Globe</h3>
-                            <span className={css.accessory__category}>Accessory</span>
-                            <span className={css.accessory__preci}>$9.45</span>
-                            < Link to='/login' className={`${css.button} ${css.accessory__button}`}><i className='bx bxs-cart-add bx-lg' ></i></Link>
-                        </div >
-                        <div className={css.accessory__content}>
-                            <img src={product2Img} alt=""
-                                className={css.accessory__img} />
-                            <h3 className={css.accessory__title}>Snow Globe</h3>
+                            <h3 className={css.accessory__title}>Thẻ Wibu</h3>
                             <span className={css.accessory__category}>Accessory</span>
                             <span className={css.accessory__preci}>$9.45</span>
                             < Link to='/login' className={`${css.button} ${css.accessory__button}`}><i className='bx bxs-cart-add bx-lg' ></i></Link>
@@ -199,32 +198,41 @@ export const Home = () => {
 
                 {/* <!--========== SEND GIFT ==========--> */}
                 < section className={`${css.send} ${css.section}`} id='demo'>
-                    <div className={`${css.send__container} ${css.bd_container} ${css.bd_grid}`}>
-                        <div className={css.send__img}>
-                            <img src={Demo} alt="" />
-                            <h1 className={css.custom_card} style={Demo === demo2Img || Demo === demo3Img ? { color: '#fff' } : { color: '#000000' }}>{CustomCard}</h1>
-                        </div >
-                        <div className={css.send__content}>
-                            < h2 className={`${css.section_title_center} ${css.send__title}`}>Loại thẻ: Thẻ RGB đen</h2>
-                            <p className={css.send__description}>Thẻ :</p>
-                            <form onSubmit={submit}>
-                                <div className={css.ahihi}>
-
-                                    <img src={demoImg} alt="" name="0" className={css.icon_card} onClick={e => { setDemo(ingArr[e.target.name]) }} />
-                                    <img src={demo1Img} alt="" name="1" className={css.icon_card} onClick={e => { setDemo(ingArr[e.target.name]) }} />
-                                    <img src={demo2Img} alt="" name="2" className={css.icon_card} onClick={e => { setDemo(ingArr[e.target.name]) }} />
-                                    <img src={demo3Img} alt="" name="3" className={css.icon_card} onClick={e => { setDemo(ingArr[e.target.name]) }} />
-
-                                </div>
-
-                                <div className={css.send__direction}>
-                                    <input required type="text" placeholder="Tên của bạn" className={css.send__input} onChange={(e) => {
-                                        setCustomCard(e.target.value)
-                                    }} />
-                                    <button className={`${css.button} ${css.btn}`}>Mua</button>
+                    <div className={`${css.send__container} ${css.demo_container} grid`}>
+                        <div className="row" style={{ padding: '10px' }}>
+                            <div className="col l-6 m-12">
+                                <div className={css.send__img}>
+                                    <img src={ingArr[Demo]} alt="" />
+                                    <h1 className={css.custom_card} style={Demo === '2' || Demo === '3' || Demo === '4' ? { color: '#fff' } : { color: '#000000' }}>{CustomCard}</h1>
                                 </div >
-                            </form >
-                        </div >
+                            </div>
+                            <div className="col l-6 m-12" style={{ margin: 'auto' }}>
+                                <div className={css.send__content} style={{ padding: '10px' }}>
+                                    < h2 className={`${css.section_title_center} ${css.send__title}`}>Loại thẻ: {Demo === '2' || Demo === '3' ? 'Thẻ đen' : Demo === '4' ? 'Thẻ wibu' : 'Thẻ trắng'}</h2>
+                                    <p className={css.send__description}>Thẻ :</p>
+                                    <form onSubmit={submit}>
+                                        <div className={css.ahihi}>
+
+                                            <img src={demoImg} alt="" name="0" className={css.icon_card} onClick={e => { setDemo(e.target.name) }} />
+                                            <img src={demo1Img} alt="" name="1" className={css.icon_card} onClick={e => { setDemo(e.target.name) }} />
+                                            <img src={demo2Img} alt="" name="2" className={css.icon_card} onClick={e => { setDemo(e.target.name) }} />
+                                            <img src={demo3Img} alt="" name="3" className={css.icon_card} onClick={e => { setDemo(e.target.name) }} />
+                                            <img src={demo4Img} alt="" name="4" className={css.icon_card} onClick={e => { setDemo(e.target.name) }} />
+
+                                        </div>
+
+                                        <div className={css.send__direction}>
+                                            <input required type="text" placeholder="Tên của bạn" className={css.send__input} onChange={(e) => {
+                                                setCustomCard(e.target.value)
+                                            }} />
+                                            <button className={`${css.button} ${css.btn}`}>Mua</button>
+                                        </div >
+                                    </form >
+                                </div >
+                            </div>
+                        </div>
+
+
 
 
                     </div >
@@ -257,7 +265,6 @@ export const Home = () => {
                         <ul>
                             < li > <Link to='/login' className={css.footer__link}>Điều khoản</Link></li>
                             < li > <Link to='/login' className={css.footer__link}>About us</Link></li>
-                            {/* <!-- <li><Link to='/login' className={css.footer__link}>Our mision</Link></li> --> */}
                         </ul >
                     </div >
 
@@ -272,6 +279,7 @@ export const Home = () => {
 
                 <p className={css.footer__copy}>&#169; 2021 itap, The fifth Group</p>
             </footer >
+            <iframe width="200" height="200" src="https://www.youtube.com/embed/YAx9vgv2RNY?&autoplay=1&playlist=YAx9vgv2RNY&loop=1" frameborder="0" allow="accelerometer; autoplay;" allowfullscreen></iframe>
         </div >
     )
 }

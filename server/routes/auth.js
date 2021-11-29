@@ -94,6 +94,7 @@ router.post("/register", async (req, res) => {
             decription: "",
             avatar: "default",
             cover: "default",
+            card: 'null',
             user_id: newUser._id,
         });
         await newProfile.save();

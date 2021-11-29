@@ -1,12 +1,13 @@
 import React from 'react'
+import NotiUi from './renderui'
 import { connect } from 'react-redux'
 
 export const Noti = (props) => {
     console.log('noti')
     return (
-        <div>
-            <h1 style={{ fontSize: '50px' }}>noti</h1>
-        </div>
+        <>
+            <NotiUi />
+        </>
     )
 }
 

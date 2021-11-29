@@ -58,3 +58,18 @@ Authorization: Bare eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MTVjNzg
 ###
 get https://mighty-sea-88194.herokuapp.com/api/profile
 Authorization: Bare eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MTVjNzgwNWM0MjAwMGQ0ZWFmM2M1OGEiLCJpYXQiOjE2MzM0NTI0MjZ9.VTwgjSxUUITEcOsS3OiWiSCHFxw99ZJGuHA39hOSaOg
+
+###
+post http://localhost:5000/api/card
+Content-Type: application/json
+
+{
+    "title":"dat.lt",
+    "type":"1"
+}
+
+###
+get http://localhost:5000/api/card/fsdafasfsadfs
+
+###
+get https://master-covid-19-api-laeyoung.endpoint.ainize.ai/jhu-edu/latest?onlyCountries=true

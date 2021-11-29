@@ -16,7 +16,7 @@ function Editlink({ updatePost, trigger, setTrigger, reff, bind_titleUrl, titleu
         setTrigger(false)
     }
     return (trigger) ?
-        <main className={css.container} style={{ zIndex: '2' }}>
+        <main className={css.container} style={{ zIndex: '1000' }}>
             <div className={css.formContainer}>
                 <form onSubmit={submit} className={css.form} style={{ padding: '0' }} ref={reff} >
                     <div className={css.formTitle} style={{ padding: '16px 16px 0px 16px' }}>

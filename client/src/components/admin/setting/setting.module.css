@@ -2,7 +2,7 @@
     max-width: 768px;
     margin: 0 auto;
     padding: 0 3% 0 3%;
-    min-height: calc(100vh - 4rem);
+    /* min-height: calc(100vh - 4rem); */
     z-index: 1;
 }
 
@@ -209,6 +209,18 @@ textarea {
 
 .contentItem p {
     color: #8a8d91;
+}
+
+.contentItem h3 {
+    color: #8a8d91;
+    font-weight: 600;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: inherit;
+}
+
+.contentItem strong {
+    color: var(--gray6);
 }
 
 .contentItem h5 {

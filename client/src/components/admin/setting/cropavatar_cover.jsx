@@ -7,7 +7,7 @@ import Loader from '../../common/loader'
 
 
 
-function Crop_Cover_avatar(props) {
+function CropCoveravatar(props) {
     const [onLoad, setonLoad] = useState(false);
     const [scale_value, setscale_value] = useState(1);
     const [editor, set_editor] = useState(null);
@@ -86,5 +86,5 @@ function Crop_Cover_avatar(props) {
 }
 
 
-export default React.memo(Crop_Cover_avatar)
+export default React.memo(CropCoveravatar)
 
