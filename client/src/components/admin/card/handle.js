@@ -9,7 +9,6 @@ import { updateProfile } from '../../../store/actions/profileAction'
 
 export const Card = (props) => {
     const { profile, updateProfile } = props
-    console.log(profile)
     const [_haveCard, set_haveCard] = useState({ visiable: false, data: '' })
     // console.log(profile)
     useEffect(() => {
@@ -21,7 +20,6 @@ export const Card = (props) => {
         }
         card_Data()
     }, [profile])
-    console.log(_haveCard)
     const { visiable: popup, setvisiable: set_popup, ref: ref_popup } = useDetectOutsideClick(false)
     return (
         <>

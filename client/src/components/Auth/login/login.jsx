@@ -41,7 +41,7 @@ export const Login = ({ getLogin, auth }) => {
         e.preventDefault();
         try {
             const mess = await getLogin(LoginData)
-            if (!mess.data.success) {
+            if (!mess?.data.success) {
                 setisError(true)
             }
         } catch (err) {
@@ -71,7 +71,7 @@ export const Login = ({ getLogin, auth }) => {
                     < div className={`${stl.formContainer} `}>
                         < form onSubmit={submit} className={stl.form}>
                             <div className={`${stl.inputContainer} ${isError ? stl.inputError : ''}`}>
-                                < input type="text" placeholder="Tài khoản" className={stl.formInput}
+                                < input type="text" placeholder="Tên tài khoản hoặc Email" className={stl.formInput}
                                     required
                                     autoComplete='off'
                                     name='username'

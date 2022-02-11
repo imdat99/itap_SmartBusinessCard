@@ -7,6 +7,7 @@ import { loadUser } from "./store/actions/authAction";
 import Login from "./components/Auth/login/login";
 import Home from "./pages/home";
 import User from "./pages/user";
+import ForGot from "./pages/forgot";
 import Admin from "./pages/admin";
 import './app.css'
 import './boxicons-2.0.7/css/boxicons.css'
@@ -62,6 +63,7 @@ function App({ loadUser, auth }) {
               component={Admin}
               customProps='noti'
             />
+            <Route path='/forgot/:token' component={ForGot} />
             <Route path='/:code' component={User} />
           </Switch>
 

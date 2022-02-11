@@ -709,6 +709,12 @@ img {
   margin-top: 4rem;
 }
 
+/* err__ */
+
+.err__ h1 {
+  font-size: 24px;
+}
+
 /*========== MEDIA QUERIES ==========*/
 
 /* For full-screen images on small screens */

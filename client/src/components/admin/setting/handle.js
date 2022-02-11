@@ -8,7 +8,7 @@ import RenderSettingUi from './renderUi'
 import CropCoveravatar from './cropavatar_cover'
 import { useDetectOutsideClick } from '../../../middleWare/detectOutsideClick';
 
-const HandleSetting = ({ getLogout, updateProfile, profile, username }) => {
+const HandleSetting = ({ getLogout, updateProfile, profile, username, email }) => {
     //Change pass
     const initChangePass = {
         oldpass: '',
@@ -127,6 +127,7 @@ const HandleSetting = ({ getLogout, updateProfile, profile, username }) => {
                 info={info}
                 set_info={set_info}
                 username={username}
+                email={email}
             />
             <CropCoveravatar
                 trigger={ImgToCrop.visiable}
@@ -142,7 +143,8 @@ const HandleSetting = ({ getLogout, updateProfile, profile, username }) => {
 
 const mapStateToProps = (state) => ({
     profile: state.profile,
-    username: state.auth.user.username
+    username: state.auth.user.username,
+    email: state.auth.user.email
 })
 
 const mapDispatchToProps = {

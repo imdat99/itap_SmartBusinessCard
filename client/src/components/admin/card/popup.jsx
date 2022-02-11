@@ -15,7 +15,6 @@ function Popup({ updateProfile, trigger, setTrigger, reff }) {
     }
     const submit = async (e) => {
         e.preventDefault();
-        console.log(_CardId)
         setonLoad(true)
         const response = await updateProfile({ card: _CardId })
         if (response.success) {

@@ -3,9 +3,8 @@ import { apiUrl } from '../store/constantsValue'
 import axios from 'axios'
 import { withRouter } from 'react-router-dom'
 import IsUser from '../components/user/isUser'
-import Notfound404 from '../components/common/Notfound404'
 import Loader from '../components/common/loader'
-
+import IsErr from '../components/common/isErr'
 
 const User = (props) => {
     const id = props.match?.params?.code
@@ -22,7 +21,7 @@ const User = (props) => {
     return (
         // <IsUser />
         isLoading ? (<Loader />) :
-            isFound ? <IsUser data={UserData} /> : <Notfound404 />
+            isFound ? <IsUser data={UserData} /> : <IsErr errData={{ isError: true, code: 404, message: 'Not found' }} />
     )
 }
 

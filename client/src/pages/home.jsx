@@ -138,12 +138,12 @@ export const Home = (props) => {
                         </div >
                         <div className={css.decoration__data}>
                             <img src={use2Img} alt="" className={css.decoration__img} />
-                            <h3 className={css.decoration__title}>B1: Đăng kí tài khoản</h3>
-                            <p>đăng kí nhanh chóng, dễ dàng</p>
+                            <h3 className={css.decoration__title}>B2: Thiết lập tài khoản</h3>
+                            <p>Thêm thẻ vật lý, thêm thông tin</p>
                         </div >
                         <div className={css.decoration__data}>
                             <img src={use3Img} alt="" className={css.decoration__img} />
-                            <h3 className={css.decoration__title}>B1: Đăng kí tài khoản</h3>
+                            <h3 className={css.decoration__title}>B3: Sử dụng, chia sẻ</h3>
                             <p>Hoạt động ổn định trên cả Android, IOS và PC</p>
                         </div >
                     </div>
@@ -271,15 +271,14 @@ export const Home = (props) => {
                     <div className={css.footer__content}>
                         < h3 className={
                             css.footer__title}>Theo dõi <strong style={{ fontSize: '25px' }}>itap</strong></h3>
-                        <Link to='/login' className={css.footer__social}><i className='bx bxl-facebook-circle bx-lg' ></i></Link>
-                        <Link to='/login' className={css.footer__social}><i className='bx bxl-instagram bx-lg'></i></Link>
-                        <Link to='/login' className={css.footer__social}><i className='bx bxl-github bx-lg' ></i></Link>
+                        <Link to='/' className={css.footer__social} onClick={(e) => { window.open(`https://www.facebook.com/100011475782121`, '_blank'); }}><i className='bx bxl-facebook-circle bx-lg' ></i></Link>
+                        <Link to='/' className={css.footer__social} onClick={(e) => { window.open(`https://www.instagram.com/dat.ltt/`, '_blank'); }}><i className='bx bxl-instagram bx-lg'></i></Link>
+                        <Link to='/' className={css.footer__social} onClick={(e) => { window.open(`https://imdat99.github.io/`, '_blank'); }}><i className='bx bxl-github bx-lg' ></i></Link>
                     </div>
                 </div >
 
                 <p className={css.footer__copy}>&#169; 2021 itap, The fifth Group</p>
             </footer >
-            <iframe width="200" height="200" src="https://www.youtube.com/embed/YAx9vgv2RNY?&autoplay=1&playlist=YAx9vgv2RNY&loop=1" frameborder="0" allow="accelerometer; autoplay;" allowfullscreen></iframe>
         </div >
     )
 }

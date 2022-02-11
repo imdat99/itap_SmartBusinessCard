@@ -18,7 +18,8 @@ export const RenderSettingUi = ({
     info,
     set_info,
     username,
-    deleteImage
+    deleteImage,
+    email
 }) => {
     const [editName, set_editName] = useState(false)
     const [editdesc, set_editdesc] = useState(false)
@@ -174,6 +175,18 @@ export const RenderSettingUi = ({
 
 
                             </div>
+                        </div>
+                    </div>
+                    <div className={css.content} >
+                        <div className={css.contentItem} >
+                            <div style={{ margin: '15px 0', width: '100%' }}>
+                                <div className={css.changepassHeader} >
+                                    <h1>Email</h1>
+                                    <p>{email}</p>
+
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                     <div className={css.content} >
